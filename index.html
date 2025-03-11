@@ -7,10 +7,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Deep Inception: Hypnotize LLM to Be Jailbreaker">
-  <meta name="keywords" content="JailBreak, LLM, Security">
+        content="Landscape of Thoughts: Visualizing the Reasoning Process of Large Language Models">
+  <meta name="keywords" content="Reasoning, LLM, Visualization">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DeepInception: Hypnotize Large Language Model to Be Jailbreaker</title>
+  <title>Landscape of Thoughts: Visualizing the Reasoning Process of Large Language Models</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -71,22 +71,28 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">DeepInception: Hypnotize Large Language Model to Be Jailbreaker</h1>
+          <h1 class="title is-1 publication-title">Landscape of Thoughts: Visualizing the Reasoning Process of Large Language Models</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://github.com/XuanLi728">Xuan Li</a><sup>1*</sup>,
+              <a href="https://github.com/AndrewZhou924">Zhanke Zhou</a><sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="https://github.com/AndrewZhou924">Zhanke Zhou</a><sup>1*</sup>,
+              <a href="https://github.com/XuanLi728">Xuan Li</a><sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="https://zfancy.github.io/">Jianing Zhu</a><sup>1*</sup>,
+              <a href="https://kiddozhu.github.io/">Zhaocheng Zhu</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              <a href="https://sunarker.github.io/">Jiangchao Yao</a><sup>2, 3</sup>,
+              <a href="https://migalkin.github.io/">Mikhail Galkin</a><sup>3</sup>,
             </span>
             <span class="author-block">
-              <a href="https://tongliang-liu.github.io/">Tongliang Liu</a><sup>4</sup>,
+              <a href="https://github.com/KyrieXiao25">Xiao Feng</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://cs.stanford.edu/~sanmi/">Sanmi Koyejo</a><sup>4</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://jian-tang.com/">Jian Tang</a><sup>2</sup>,
             </span>
             <span class="author-block">
               <a href="https://bhanml.github.io/">Bo Han</a><sup>1</sup>,
@@ -95,9 +101,9 @@
 
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>TMLR Group, Hong Kong Baptist University,</span>
-            <span class="author-block"><sup>2</sup>CMIC, Shanghai Jiao Tong University</span>
-            <span class="author-block"><sup>3</sup>Shanghai AI Laboratory</span>
-            <span class="author-block"><sup>4</sup>Sydney AI Centre, The University of Sydney</span>
+            <span class="author-block"><sup>2</sup>Mila - Québec AI Institute</span>
+            <span class="author-block"><sup>3</sup>Intel Labs</span>
+            <span class="author-block"><sup>4</sup>Stanford University</span>
           </div>
 
           <div class="is-size-5 publication-authors">
@@ -109,7 +115,8 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="http://arxiv.org/abs/2311.03191"
+                <!-- TODO -->
+                <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -119,7 +126,8 @@
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/tmlr-group/DeepInception"
+                <!-- TODO -->
+                <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -145,7 +153,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Despite remarkable success in various applications, large language models (LLMs) are vulnerable to adversarial jailbreaks that make the safety guardrails void. However, previous studies for jailbreaks usually resort to brute-force optimization or extrapolations of a high computation cost, which might not be practical or effective. In this paper, inspired by the Milgram experiment that individuals can harm another person if they are told to do so by an authoritative figure, we disclose a lightweight method, termed as <i>DeepInception</i>, which can easily hypnotize LLM to be a jailbreaker and unlock its misusing risks. Specifically, DeepInception leverages the personification ability of LLM to construct a novel nested scene to behave, which realizes an adaptive way to escape the usage control in a normal scenario and provides the possibility for further direct jailbreaks. Empirically, we conduct comprehensive experiments to show its efficacy. Our DeepInception can achieve competitive jailbreak success rates with previous counterparts and realize a continuous jailbreak in subsequent interactions, which reveals the critical weakness of self-losing on both open/closed-source LLMs like Falcon, Vicuna, Llama-2, and GPT-3.5/4/4V. Our investigation appeals that people should pay more attention to the safety aspects of LLMs and a stronger defense against their misuse risks.
+            Numerous applications of large language models (LLMs) rely on their ability to perform step-by-step reasoning. However, the reasoning behavior of LLMs remains poorly understood, posing challenges to research, development, and safety. To address this gap, we introduce <i>landscape of thoughts</i>-the first visualization tool for users to inspect the reasoning paths of chain-of-thought and its derivatives on any multi-choice dataset. Specifically, we represent the states in a reasoning path as feature vectors that quantify their distances to all answer choices. These features are then visualized in two-dimensional plots using t-SNE. Qualitative analysis shows that the landscape of thoughts effectively distinguishes between strong and weak models, correct and incorrect answers, as well as different reasoning tasks. It also uncovers undesirable reasoning patterns, such as low consistency and high uncertainty. Additionally, users can adapt our tool to a model that predicts any property they observe. We showcase this advantage by adapting our tool to a lightweight verifier, which significantly improves reasoning by evaluating the correctness of reasoning paths.
           </p>
         </div>
       </div>
@@ -165,16 +173,18 @@
           <!-- Add image -->
           <div class="figure" style="align: left; text-align:center;">
               <img
-                src="./static/paper_imgs/direct-indirect-examples.png"
+                src="./static/paper_imgs/landscape.png"
                 alt="img description"
                 width="800"
                 height="600" />
-              <p><b>Figure 1</b>. Examples (with the latest GPT-4) of the direct and our instructions for jailbreak.</p>
+              <p><b>Figure 1</b>. Landscape of thoughts for visualizing the reasoning steps of LLMs.</p>
           </div>
           <br>
           <!-- / Add image -->
           <p>
-            Although attracting growing interest, existing jailbreaks focus on achieving an empirical success of attack by manually or automatically crafting adversarial prompts for specific targets, which might not be efficient or practical under the black-box usage. Specifically, <i>on the one hand</i>, as current LLMs are equipped with ethical and legal constraints, most jailbreaks with direct instructions (like the left-side of Figure 1) can be easily recognized and banned. <i>On the other hand</i>, and more importantly, it lacks an in-depth understanding of the overriding procedure, i.e., the core mechanism behind a successful jailbreak. In this work, we propose DeepInception from a new perspective to reveal LLM's weakness.
+            Although large language models (LLMs) excel in applications like tool use and step-by-step reasoning, their underlying reasoning behavior remains poorly understood. Current understanding studies focus on specific tasks or decoding methods, lacking general methods to analyze reasoning across user-defined scenarios. In this work, we propose Landscape of Thoughts, a visualization tool that maps reasoning paths in LLMs using perplexity-based features and t-SNE projection, revealing patterns in success and failure cases in Figure 1.
+            
+
           </p>
         </div>
       </div>
@@ -183,6 +193,8 @@
 
   </div>
 </section>
+
+
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -211,7 +223,7 @@
         <div class="content has-text-justified">
           <p>
             In this work, we start with a well-known psychological study, e.g., the Milgram shock experiment, to reveal the misuse risks of LLMs. The experiment is about how willing individuals were to obey an authority figure's instructions, even if it involved causing harm to another person. Based on the intuitive understanding, as illustrated in Figure 2, we propose DeepInception as following.
-
+            Our tool uncovers observations like the link between convergence speed and accuracy, offering insights for engineers to refine solutions, researchers to enhance algorithms, and safety experts to monitor behavior. By adapting it into a predictive model, we further improve reasoning performance without altering LLM parameters, providing a practical framework for broader reasoning analysis.
           </p>
         </div>
       </div>
@@ -223,37 +235,19 @@
 
 
 
+
+
+
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Typing Effect. -->
-    <div class="columns is-centered ">
+    <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-
-        <h2 class="title is-3" style="text-align: center;">DeepInception Example</h2>
-
-        <!-- start typing -->
-          <!-- <div class="outer_bordered"> -->
-           
-              <div style="display: flex; align-items: center; position: relative; left: 0;">
-                <img src="./static/images/user.png" alt="User" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 2px;">
-                <span style="font-weight: bold; font-size: 20px;">User:</span>
-              </div>
-              <p id="Q_typing"></p>
-        
-            
-              <div style="display: flex; align-items: center; position: relative; left: 0;">
-                <img src="./static/images/GPT.svg" alt="GPT" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 2px;">
-                <span style="font-weight: bold; font-size: 20px;">GPT:</span>
-              </div>
-              <!-- <div class="A_bordered"> -->
-                <p id="A_typing"></p>
-            <!-- </div> -->
-          <!-- </div> -->
-          <!-- / start typing -->
-
+        <h2 class="title is-3">Landscape of Thoughts Visualization</h2>
+        <div class="content">
+          <iframe src="demo.html" width="100%" height="600px" frameborder="0"></iframe>
+        </div>
       </div>
     </div>
-    <!-- / Typing Effect. -->
   </div>
 </section>
 
@@ -273,7 +267,7 @@
 
 
         <!-- Deep Inceptio: Template -->
-        <h2 class="title is-3">DeepInception</h2>
+        <h2 class="title is-3">Landscape of Thoughts</h2>
         <div class="content has-text-justified">
           <div class="figure" style="align: left; text-align:center;">
             <img
@@ -293,12 +287,13 @@
           </div>
         <br>
         <p>
-          Specifically, the above prompt template has several properties as an approach for nested jailbreak.
-          
+          Specifically, the visualization of the reasoning process can be conducted by the following steps.
           <ul>
-            <li> <b>[scene]:</b> the carrier of setting up the background of hypnotization, <i>e.g.,</i> a fiction, movie, news, or story. A better alignment between <b>[attack target]</b> and <b>[scene]</b> might bring a better outcome. </li>
-            <li> <b>[character number] and [layer number]:</b> control the granularity of the inception, as a hypothesis is that the harmful information is spread among the discussion between different characters within different layers, thus bypassing the defense of LLMs.</li>
-            <li> <b>[attack target]:</b> the specific target of conducting jailbreak, <i>e.g.,</i> the steps of hacking a computer or creating a bomb. The following sentence, "against the super evil doctor," aims to decrease the moral concern of LLM, which shares a similar spirit with the prior Milgram Shock Experiment.</li>
+            <li> <b>[Characterizing the states]:</b>
+              We propose to characterize the intermediate thoughts in a reasoning path as feature vectors using the LLM's likelihood function, where each state is represented by a k-dimensional vector measuring its distances to all possible choices, and we visualize multiple reasoning paths together by projecting them into the same feature space while ensuring the correct answers align consistently.
+            </li>
+            <li> <b>[Visualization]:</b> We project the high-dimensional feature matrix into 2D space using t-SNE for visualization, then apply Parzen window estimation to smooth the discrete points into a continuous density map for better interpretability. </li>
+
           </ul>
 
         </p>
@@ -316,12 +311,19 @@
 
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Jailbreak Examples</h2>
+        <h2 class="title is-3">Visualization Experiences</h2>
         
         <div class="content has-text-justified">
           <p>
-            Here we provide some examples of our DeepInception with specific jailbreak targets.
+            We qualitatively analyze the landscape of thoughts for different datasets and language models. Besides, we also introduce three quantitative metrics to help understand
+            the behavior of the LLM at different reasoning steps. 
+            <ul>
+              <li> <b>Consistency:</b> whether the LLM knows the answer before generating all thoughts</li>
+              <li> <b>Uncertainty:</b> how confident the LLM is about its predictions at intermediate steps</li>
+              <li> <b>Perplexity:</b> how confident the LLM is about its thoughts</li>
+            </ul>
           </p>
+          
         </div>
 
 
@@ -330,11 +332,11 @@
         <div class="content has-text-justified">
           <!-- Add image -->
           <div class="figure" style="align: left; text-align:center;">
-              <img src="./static/paper_imgs/exp1.png" 
+              <img src="./static/paper_imgs/visual_exp1.png" 
               class="example-image"
               alt="Jailbreak example."
               /> 
-              <p> The example of making a bomb with DeepInception. </p>
+              <p> Comparing the landscapes and corresponding metrics of four reasoning algorithms (using Llama-3.1-70B on the AQuA dataset).  </p>
           </div>
           <br>
           <!-- / Add image -->
@@ -346,11 +348,11 @@
         <div class="content has-text-justified">
           <!-- Add image -->
           <div class="figure" style="align: left; text-align:center;">
-              <img src="./static/paper_imgs/exp2.png" 
+              <img src="./static/paper_imgs/visual_exp2.png" 
               class="example-image"
               alt="Jailbreak example."
               /> 
-              <p> The example of hacking a computer with Linux operation system with DeepInception.</p>
+              <p> Comparing the landscapes and corresponding metrics of different datasets (using Llama-3.1-70B with CoT). </p>
           </div>
           <br>
           <!-- / Add image -->
@@ -362,11 +364,12 @@
         <div class="content has-text-justified">
           <!-- Add image -->
           <div class="figure" style="align: left; text-align:center;">
-              <img src="./static/paper_imgs/exp3.png" 
+              <img src="./static/paper_imgs/visual_exp3.png" 
               class="example-image"
               alt="Jailbreak example."
               /> 
-              <p> The example of our DeepInception on the GPT-4V under the multi-modal scenario. </p>
+              <p> Comparing the landscapes and corresponding metrics of different language models (with CoT on the AQuA
+                dataset). </p>
           </div>
           <br>
           <!-- / Add image -->
@@ -383,7 +386,7 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width has-text-centered">
-        <h2 class="title is-3">Experimental Results</h2>
+        <h2 class="title is-3">A Lightweight Verifier to Predictive Models</h2>
 
         <div class="content has-text-justified is-centered">
           <p>
@@ -392,7 +395,7 @@
         </div>        
           <div class="content has-text-centered">
             <p><b>Table 1</b>. Jailbreak attacks using the AdvBench subset. The best results are <b>bolded</b>.</p>
-            <img src="./static/paper_imgs/results1.png" style="width:600px;"
+            <img src="./static/paper_imgs/average_performance.png" style="width:600px;"
             class="result-image"
             alt="Interpolation end reference image."/>
           </div>
@@ -406,7 +409,7 @@
           </div>
           <div class="content has-text-centered">
             <p><b>Table 2</b>. Continual jailbreak attacks using the AdvBench subset. The best results are <b>bolded</b>.</p>
-            <img src="./static/paper_imgs/results2.png" style="width:600px;"
+            <img src="./static/paper_imgs/inference_scaling.png" style="width:600px;"
             class="result-image"
             alt="Interpolation end reference image."/>
           </div>
@@ -418,12 +421,6 @@
               Third, we present the results of further jailbreak attacks with specific inception like the second example presented previously.
             </p>
           </div>
-          <div class="content has-text-centered">
-            <p><b>Table 3</b>. Further jailbreak attacks with specific inception. The best results are <b>bolded</b>. Note that here, we use different requests set from the previous to evaluate the jailbreak performance.</p>
-            <img src="./static/paper_imgs/results3.png" style="width:600px;"
-            class="result-image"
-            alt="Interpolation end reference image."/>
-          </div>
 
           <br>
           <div class="content has-text-justified is-centered">
@@ -431,28 +428,33 @@
             Additionally, we conduct various ablation studies to characterize DeepInception from different perspectives.
             </p>
           </div>
-          <div class="content has-text-centered">
-            <img src="./static/paper_imgs/Abl_study_1.png" style="width:800px;"
-            class="result-image"
-            alt="Interpolation end reference image."/>
-          </div>
-          <p>
-          <b>Figure 4</b>. Ablation Study-I. (1) effects of the number of characters w.r.t. JSR, (2) effects of the number of layers w.r.t. JSR, (3) effects of the detailed scene on same jailbreak target w.r.t JSR, (4) effects on using different core factors in our DeepInception to escape from safety guardrails.
-            </p>
-          <div class="content has-text-centered">
-            <img src="./static/paper_imgs/Abl_study_2.png" style="width:800px;"
-            class="result-image"
-            alt="Interpolation end reference image."/>
-          </div>
-          <p>
-            <b>Figure 5</b>. Ablation Study-II. JSR w.r.t. specific topics in harmful behaviors.
-            </p>
-            <br>
-            <div class="content has-text-justified is-centered">
-              <p>
-                More experiment setups and details can refer to our paper.
-              </p>
+          <div class="columns is-centered">
+            <div class="column">
+              <div class="content has-text-centered">
+                <img src="./static/paper_imgs/abl_model.png" style="width:100%;"
+                class="result-image"
+                alt="Ablation Study I"/>
+              </div>
             </div>
+            <div class="column">
+              <div class="content has-text-centered">
+                <img src="./static/paper_imgs/abl_dataset.png" style="width:100%;"
+                class="result-image"
+                alt="Ablation Study II"/>
+              </div>
+            </div>
+          </div>
+          <div class="content has-text-centered">
+            <p>
+              <b>Figure 4-5</b>. <b>Left:</b> Ablation Study-I. (1) effects of the number of characters w.r.t. JSR, (2) effects of the number of layers w.r.t. JSR, (3) effects of the detailed scene on same jailbreak target w.r.t JSR, (4) effects on using different core factors in our DeepInception to escape from safety guardrails. <b>Right:</b> Ablation Study-II. JSR w.r.t. specific topics in harmful behaviors.
+            </p>
+          </div>
+          <br>
+          <div class="content has-text-justified is-centered">
+            <p>
+              More experiment setups and details can refer to our paper.
+            </p>
+          </div>
       </div>
     </div>
   </div>
@@ -468,13 +470,13 @@
       If you find our paper and repo useful, please consider to cite:
     </p>
     <pre><code>
-      @misc{li2023deepinception,
-        title={DeepInception: Hypnotize Large Language Model to Be Jailbreaker}, 
-        author={Xuan Li and Zhanke Zhou and Jianing Zhu and Jiangchao Yao and Tongliang Liu and Bo Han},
-        year={2023},
-        eprint={2311.03191},
-        archivePrefix={arXiv},
-        primaryClass={cs.LG}
+      @misc{,
+        title={}, 
+        author={},
+        year={},
+        eprint={},
+        archivePrefix={},
+        primaryClass={}
   }
 </code></pre>
   </div>
