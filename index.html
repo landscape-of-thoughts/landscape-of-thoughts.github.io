@@ -242,7 +242,7 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Landscape of Thoughts Visualization</h2>
+        <h2 class="title is-3">Landscape of Thoughts Example</h2>
         <div class="content">
           <iframe src="demo.html" width="100%" height="600px" frameborder="0"></iframe>
         </div>
@@ -261,14 +261,8 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
 
-        <!-- / Intro -->
-
-        <!-- / Deep Inception: Illustration -->
-
-
-        <!-- Deep Inceptio: Template -->
         <h2 class="title is-3">Landscape of Thoughts</h2>
-        <div class="content has-text-justified">
+        <!-- <div class="content has-text-justified">
           <div class="figure" style="align: left; text-align:center;">
             <img
             src="./static/paper_imgs/direct-instruction-example-layer.png"
@@ -285,7 +279,7 @@
               width="800"
               height="600" />
           </div>
-        <br>
+        <br> -->
         <p>
           Specifically, the visualization of the reasoning process can be conducted by the following steps.
           <ul>
@@ -336,7 +330,7 @@
               class="example-image"
               alt="Jailbreak example."
               /> 
-              <p> Comparing the landscapes and corresponding metrics of four reasoning algorithms (using Llama-3.1-70B on the AQuA dataset).  </p>
+               <p><b>Figure 4</b>. Comparing the landscapes and corresponding metrics of four reasoning algorithms (using Llama-3.1-70B on the AQuA dataset).  </p>
           </div>
           <br>
           <!-- / Add image -->
@@ -352,7 +346,7 @@
               class="example-image"
               alt="Jailbreak example."
               /> 
-              <p> Comparing the landscapes and corresponding metrics of different datasets (using Llama-3.1-70B with CoT). </p>
+               <p> <b>Figure 5</b>. Comparing the landscapes and corresponding metrics of different datasets (using Llama-3.1-70B with CoT). </p>
           </div>
           <br>
           <!-- / Add image -->
@@ -368,7 +362,7 @@
               class="example-image"
               alt="Jailbreak example."
               /> 
-              <p> Comparing the landscapes and corresponding metrics of different language models (with CoT on the AQuA
+              <p> <b>Figure 6</b>. Comparing the landscapes and corresponding metrics of different language models (with CoT on the AQuA
                 dataset). </p>
           </div>
           <br>
@@ -390,11 +384,11 @@
 
         <div class="content has-text-justified is-centered">
           <p>
-            First, we evaluate the direct jailbreak on those LLMs with Jailbreak Success Rate (JSR) and also consider several defense methods.
+            Based on the observations from visualization, the landscape of thoughts method has the potential to be adapted to a model to predict any property users observe, here we show examples of using it to predict the correctness of the reasoning paths in Figure 1.
           </p>
         </div>        
           <div class="content has-text-centered">
-            <p><b>Table 1</b>. Jailbreak attacks using the AdvBench subset. The best results are <b>bolded</b>.</p>
+            <p><b>Figure 7</b>. Reasoning accuracy averaging across all dataset.</p>
             <img src="./static/paper_imgs/average_performance.png" style="width:600px;"
             class="result-image"
             alt="Interpolation end reference image."/>
@@ -404,11 +398,11 @@
 
           <div class="content has-text-justified is-centered">
             <p>
-              Then, we verify its effectiveness in inducing continual jailbreak with direct instructions on with once DeepInception.
+              Then, we investigate the inference-time scaling effect of the verifier by adjusting the number of reasoning paths from 1 to 50.
             </p>
           </div>
           <div class="content has-text-centered">
-            <p><b>Table 2</b>. Continual jailbreak attacks using the AdvBench subset. The best results are <b>bolded</b>.</p>
+            <p><b>Figure 8</b>. Demonstration of the inference-time scaling effect of the verifier.</p>
             <img src="./static/paper_imgs/inference_scaling.png" style="width:600px;"
             class="result-image"
             alt="Interpolation end reference image."/>
@@ -418,7 +412,7 @@
           
           <div class="content has-text-justified is-centered">
             <p>
-              Third, we present the results of further jailbreak attacks with specific inception like the second example presented previously.
+              Third, we present the ablation study to analysis the transferability of the verifier-based method cross models and datasets.
             </p>
           </div>
 
@@ -446,7 +440,10 @@
           </div>
           <div class="content has-text-centered">
             <p>
-              <b>Figure 4-5</b>. <b>Left:</b> Ablation Study-I. (1) effects of the number of characters w.r.t. JSR, (2) effects of the number of layers w.r.t. JSR, (3) effects of the detailed scene on same jailbreak target w.r.t JSR, (4) effects on using different core factors in our DeepInception to escape from safety guardrails. <b>Right:</b> Ablation Study-II. JSR w.r.t. specific topics in harmful behaviors.
+              <b>Figure 9-10</b>. <b>Left:</b> Verifier transfer across models, <b>Right:</b> Verifier transfer across datasets.
+              Absolute accuracy changes with the verifier, compared to performance in Figure 7 (without the verifier). 
+        The verifier is trained on each column (dataset or model) and evaluated on all rows (other datasets or models). 
+        Positive values indicate improvement in accuracy with the verifier.
             </p>
           </div>
           <br>
