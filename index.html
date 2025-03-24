@@ -132,7 +132,7 @@
               <!-- Code Link. -->
               <span class="link-block">
                 <!-- TODO -->
-                <a href=""
+                <a href="https://github.com/AndrewZhou924/trace-of-thoughts/tree/arxiv"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -201,10 +201,10 @@
 
 
 
-<section class="section">
+<!-- <section class="section">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
+    <!-- <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Motivation</h2>
         <div class="content has-text-justified">
@@ -222,21 +222,21 @@
             <p><b>Figure 2</b>. An illustration of the Milgram shock experimen (Left) and an intuitive understanding on our mechanism (Right).</p>
           </div>
           
-        </div>
+        </div> -->
 
         <!-- Deep Inceptio: Illustration -->
-        <div class="content has-text-justified">
+        <!-- <div class="content has-text-justified">
           <p>
             In this work, we start with a well-known psychological study, e.g., the Milgram shock experiment, to reveal the misuse risks of LLMs. The experiment is about how willing individuals were to obey an authority figure's instructions, even if it involved causing harm to another person. Based on the intuitive understanding, as illustrated in Figure 2, we propose DeepInception as following.
             Our tool uncovers observations like the link between convergence speed and accuracy, offering insights for engineers to refine solutions, researchers to enhance algorithms, and safety experts to monitor behavior. By adapting it into a predictive model, we further improve reasoning performance without altering LLM parameters, providing a practical framework for broader reasoning analysis.
           </p>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--/ Abstract. -->
 
-  </div>
-</section>
+  <!-- </div>
+</section> -->
 
 
 
@@ -267,36 +267,19 @@
       <div class="column is-four-fifths">
 
         <h2 class="title is-3">Landscape of Thoughts</h2>
-        <!-- <div class="content has-text-justified">
-          <div class="figure" style="align: left; text-align:center;">
-            <img
-            src="./static/paper_imgs/direct-instruction-example-layer.png"
-            alt="img description"
-            width="800"
-            height="600" />
-            <p><b>Figure 3</b>. Illustrations of the direct instruction and our inception instructions for jailbreak attack.</p>
-        </div>
-      <br>
-          <div class="figure" style="align: left; text-align:center;">
-              <img
-              src="./static/paper_imgs/Template.png"
-              alt="img description"
-              width="800"
-              height="600" />
-          </div>
-        <br> -->
+        <div class="content has-text-justified">
         <p>
           Specifically, the visualization of the reasoning process can be conducted by the following steps.
           <ul>
-            <li> <b>[Characterizing the states]:</b>
-              We propose to characterize the intermediate thoughts in a reasoning path as feature vectors using the LLM's likelihood function, where each state is represented by a k-dimensional vector measuring its distances to all possible choices, and we visualize multiple reasoning paths together by projecting them into the same feature space while ensuring the correct answers align consistently.
+            <li> <b>Characterizing the states:</b> We characterize intermediate thoughts, measure their distances to possible choices in a unified feature space.
             </li>
-            <li> <b>[Visualization]:</b> We project the high-dimensional feature matrix into 2D space using t-SNE for visualization, then apply Parzen window estimation to smooth the discrete points into a continuous density map for better interpretability. </li>
+            <li> <b>Visualization:</b> We project the high-dimensional feature matrix into 2D space, and smooth the discrete points into a continuous density map. </li>
+              <!-- We project the high-dimensional feature matrix into 2D space using t-SNE for visualization, then apply Parzen window estimation to smooth the discrete points into a continuous density map for better interpretability. </li> -->
 
           </ul>
 
         </p>
-                  
+      </div>
 
       </div>
     </div>
@@ -330,12 +313,24 @@
         <!-- <h3 class="title is-3">Example 1</h3> -->
         <div class="content has-text-justified">
           <!-- Add image -->
-          <div class="figure" style="align: left; text-align:center;">
+          <div class="figure" style="align: left; text-align:center; margin: 0 -200px; overflow: visible;">
               <img src="./static/paper_imgs/visual_exp1.png" 
               class="example-image"
-              alt="Jailbreak example."
-              /> 
+              alt="Visualization qualitative analysis."
+              width="1500" /> 
                <p><b>Figure 4</b>. Comparing the landscapes and corresponding metrics of four reasoning algorithms (using Llama-3.1-70B on the AQuA dataset).  </p>
+          </div>
+          <div class="content has-text-justified">
+            <p>
+      
+            <ul>
+              <li><b>Observation 1:</b> Faster landscape convergence indicates higher reasoning accuracy.</li>
+              
+              <li><b>Observation 2:</b> Wrong paths converge quickly, correct paths progress slowly.</li>
+              
+              <li><b>Observation 3:</b> Correct paths show higher consistency between intermediate and final states.</li>
+            </ul>
+          </p>
           </div>
           <br>
           <!-- / Add image -->
@@ -346,12 +341,22 @@
         <!-- <h3 class="title is-3">Example 2</h3> -->
         <div class="content has-text-justified">
           <!-- Add image -->
-          <div class="figure" style="align: left; text-align:center;">
+          <div class="figure" style="align: left; text-align:center; margin: 0 -200px; overflow: visible;">
               <img src="./static/paper_imgs/visual_exp2.png" 
               class="example-image"
-              alt="Jailbreak example."
-              /> 
-               <p> <b>Figure 5</b>. Comparing the landscapes and corresponding metrics of different datasets (using Llama-3.1-70B with CoT). </p>
+              alt="Visualization qualitative analysis."
+              width="1500" /> 
+               <p><b>Figure 5</b>. Comparing the landscapes and corresponding metrics of different datasets (using Llama-3.1-70B with CoT). </p>
+          </div>
+          <div class="content has-text-justified">
+            <p>
+      
+            <ul>
+              <li><b>Observation 4:</b> Similar reasoning tasks exhibit similar landscapes.</li>
+      
+              <li><b>Observation 5:</b> Different reasoning tasks show different consistency, uncertainty, and perplexity.</li>
+            </ul>
+          </p>
           </div>
           <br>
           <!-- / Add image -->
@@ -362,11 +367,11 @@
         <!-- <h3 class="title is-3">Example 2</h3> -->
         <div class="content has-text-justified">
           <!-- Add image -->
-          <div class="figure" style="align: left; text-align:center;">
+          <div class="figure" style="align: left; text-align:center; margin: 0 -200px; overflow: visible;">
               <img src="./static/paper_imgs/visual_exp3.png" 
               class="example-image"
               alt="Jailbreak example."
-              /> 
+              width="1500" /> 
               <p> <b>Figure 6</b>. Comparing the landscapes and corresponding metrics of different language models (with CoT on the AQuA
                 dataset). </p>
           </div>
@@ -378,19 +383,9 @@
       <p>
 
       <ul>
-        <li><b>[Observation 1]:</b> Faster landscape convergence indicates higher reasoning accuracy.</li>
+        <li><b>Observation 6:</b> The landscape converges faster as the model size increase.</li>
         
-        <li><b>[Observation 2]:</b> Wrong paths converge quickly, correct paths progress slowly.</li>
-        
-        <li><b>[Observation 3]:</b> Correct paths show higher consistency between intermediate and final states.</li>
-
-        <li><b>[Observation 4]:</b> Similar reasoning tasks exhibit similar landscapes.</li>
-
-        <li><b>[Observation 5]:</b> Different reasoning tasks show different consistency, uncertainty, and perplexity.</li>
-
-        <li><b>[Observation 6]:</b> The landscape converges faster as the model size increase.</li>
-        
-        <li><b>[Observation 7]:</b> Larger models have higher consistency, lower uncertainty, and lower perplexity.</li>
+        <li><b>Observation 7:</b> Larger models have higher consistency, lower uncertainty, and lower perplexity.</li>
       </ul>
     </p>
     </div>
@@ -432,16 +427,16 @@
             alt="Interpolation end reference image."/>
           </div>
 
-          <br>
+          <!-- <br> -->
           
-          <div class="content has-text-justified is-centered">
+          <!-- <div class="content has-text-justified is-centered">
             <p>
               Third, we present the ablation study to analysis the transferability of the verifier-based method cross models and datasets.
             </p>
-          </div>
+          </div> -->
 
-          <br>
-          <div class="content has-text-justified is-centered">
+          <!-- <br> -->
+          <!-- <div class="content has-text-justified is-centered">
             <p>
             Additionally, we conduct various ablation studies to characterize DeepInception from different perspectives.
             </p>
@@ -475,8 +470,8 @@
             <p>
               More experiment setups and details can refer to our paper.
             </p>
-          </div>
-      </div>
+          </div> -->
+      <!-- </div> -->
     </div>
   </div>
 </section>
@@ -590,4 +585,3 @@ var instance =   new TypeIt('#Q_typing', {
     border-radius: 8px;
   }
 </style>
-
