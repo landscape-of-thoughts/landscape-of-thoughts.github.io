@@ -157,8 +157,11 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <p>
+          <!-- <p>
             Numerous applications of large language models (LLMs) rely on their ability to perform step-by-step reasoning. However, the reasoning behavior of LLMs remains poorly understood, posing challenges to research, development, and safety. To address this gap, we introduce <i>landscape of thoughts</i>-the first visualization tool for users to inspect the reasoning paths of chain-of-thought and its derivatives on any multi-choice dataset. Specifically, we represent the states in a reasoning path as feature vectors that quantify their distances to all answer choices. These features are then visualized in two-dimensional plots using t-SNE. Qualitative analysis shows that the landscape of thoughts effectively distinguishes between strong and weak models, correct and incorrect answers, as well as different reasoning tasks. It also uncovers undesirable reasoning patterns, such as low consistency and high uncertainty. Additionally, users can adapt our tool to a model that predicts any property they observe. We showcase this advantage by adapting our tool to a lightweight verifier, which significantly improves reasoning by evaluating the correctness of reasoning paths.
+          </p> -->
+          <p>
+            We propose Landscape of Thoughts, a visualization tool that maps reasoning paths in LLMs using perplexity-based features and t-SNE projection, revealing patterns in success and failure cases.
           </p>
         </div>
       </div>
@@ -186,10 +189,11 @@
           </div>
           <br>
           <!-- / Add image -->
-          <p>
+          <!-- <p>
             Although large language models (LLMs) excel in applications like tool use and step-by-step reasoning, their underlying reasoning behavior remains poorly understood. Current understanding studies focus on specific tasks or decoding methods, lacking general methods to analyze reasoning across user-defined scenarios. In this work, we propose Landscape of Thoughts, a visualization tool that maps reasoning paths in LLMs using perplexity-based features and t-SNE projection, revealing patterns in success and failure cases in Figure 1.
-            
-
+          </p> -->
+          <p>
+            Large language models (LLMs) excel in tasks like tool use and step-by-step reasoning, but their reasoning processes are not well understood. Reading their generated reasoning texts is time-consuming. Landscape of thoughts approach uses visualization plots to intuitively analyze and clarify the LLM reasoning process for users.
           </p>
         </div>
       </div>
@@ -199,57 +203,19 @@
   </div>
 </section>
 
-
-
-<!-- <section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <!-- <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Motivation</h2>
-        <div class="content has-text-justified">
-          <div class="figure" style="align: left; text-align:center;">
-            <img
-              src="./static/paper_imgs/Milgram-experiment.png"
-              alt="img description"
-              width="244"
-              height="225" />
-            <img
-              src="./static/paper_imgs/deeper.jpg"
-              alt="img description"
-              width="430"
-              height="225" />
-            <p><b>Figure 2</b>. An illustration of the Milgram shock experimen (Left) and an intuitive understanding on our mechanism (Right).</p>
-          </div>
-          
-        </div> -->
-
-        <!-- Deep Inceptio: Illustration -->
-        <!-- <div class="content has-text-justified">
-          <p>
-            In this work, we start with a well-known psychological study, e.g., the Milgram shock experiment, to reveal the misuse risks of LLMs. The experiment is about how willing individuals were to obey an authority figure's instructions, even if it involved causing harm to another person. Based on the intuitive understanding, as illustrated in Figure 2, we propose DeepInception as following.
-            Our tool uncovers observations like the link between convergence speed and accuracy, offering insights for engineers to refine solutions, researchers to enhance algorithms, and safety experts to monitor behavior. By adapting it into a predictive model, we further improve reasoning performance without altering LLM parameters, providing a practical framework for broader reasoning analysis.
-          </p>
-        </div>
-      </div>
-    </div> -->
-    <!--/ Abstract. -->
-
-  <!-- </div>
-</section> -->
-
-
-
-
-
-
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Landscape of Thoughts Example</h2>
+        <div class="content has-text-justified">
+          <p>
+            Using Landscape of Thoughts, we can see how LLMs derive the answer directly.
+  
+          </p>
+        </div>
         <div class="content">
-          <iframe src="demo.html" width="100%" height="600px" frameborder="0"></iframe>
+          <iframe src="static/animations/demo.html" width="100%" height="600px" frameborder="0"></iframe>
         </div>
       </div>
     </div>
@@ -269,7 +235,7 @@
         <h2 class="title is-3">Landscape of Thoughts</h2>
         <div class="content has-text-justified">
         <p>
-          Specifically, the visualization of the reasoning process can be conducted by the following steps.
+          The visualization of the reasoning process can be conducted by the following steps.
           <ul>
             <li> <b>Characterizing the states:</b> We characterize intermediate thoughts, measure their distances to possible choices in a unified feature space.
             </li>
@@ -316,13 +282,13 @@
           <div class="figure" style="align: left; text-align:center; margin: 0 -200px; overflow: visible;">
               <img src="./static/paper_imgs/visual_exp1.png" 
               class="example-image"
-              alt="Visualization qualitative analysis."
+              alt="LoT for different algorithms."
               width="1500" /> 
                <p><b>Figure 4</b>. Comparing the landscapes and corresponding metrics of four reasoning algorithms (using Llama-3.1-70B on the AQuA dataset).  </p>
           </div>
           <div class="content has-text-justified">
             <p>
-      
+              We can use Landscape of Thoughts to analyze the reasoning process of different algorithms.
             <ul>
               <li><b>Observation 1:</b> Faster landscape convergence indicates higher reasoning accuracy.</li>
               
@@ -344,13 +310,13 @@
           <div class="figure" style="align: left; text-align:center; margin: 0 -200px; overflow: visible;">
               <img src="./static/paper_imgs/visual_exp2.png" 
               class="example-image"
-              alt="Visualization qualitative analysis."
+              alt="LoT for different datasets."
               width="1500" /> 
                <p><b>Figure 5</b>. Comparing the landscapes and corresponding metrics of different datasets (using Llama-3.1-70B with CoT). </p>
           </div>
           <div class="content has-text-justified">
             <p>
-      
+              We can use Landscape of Thoughts to analyze the reasoning process of different datasets.
             <ul>
               <li><b>Observation 4:</b> Similar reasoning tasks exhibit similar landscapes.</li>
       
@@ -370,7 +336,7 @@
           <div class="figure" style="align: left; text-align:center; margin: 0 -200px; overflow: visible;">
               <img src="./static/paper_imgs/visual_exp3.png" 
               class="example-image"
-              alt="Jailbreak example."
+              alt="LoT for different models."
               width="1500" /> 
               <p> <b>Figure 6</b>. Comparing the landscapes and corresponding metrics of different language models (with CoT on the AQuA
                 dataset). </p>
@@ -381,7 +347,7 @@
         <!--/ Example 3 -->
         <div class="content has-text-justified">
       <p>
-
+        We can use Landscape of Thoughts to analyze the reasoning process of different models.
       <ul>
         <li><b>Observation 6:</b> The landscape converges faster as the model size increase.</li>
         
@@ -417,7 +383,7 @@
 
           <div class="content has-text-justified is-centered">
             <p>
-              Then, we investigate the inference-time scaling effect of the verifier by adjusting the number of reasoning paths from 1 to 50.
+              Then, we investigate the inference-time scaling effect of the verifier by adjusting the number of reasoning paths.
             </p>
           </div>
           <div class="content has-text-centered">
@@ -427,51 +393,6 @@
             alt="Interpolation end reference image."/>
           </div>
 
-          <!-- <br> -->
-          
-          <!-- <div class="content has-text-justified is-centered">
-            <p>
-              Third, we present the ablation study to analysis the transferability of the verifier-based method cross models and datasets.
-            </p>
-          </div> -->
-
-          <!-- <br> -->
-          <!-- <div class="content has-text-justified is-centered">
-            <p>
-            Additionally, we conduct various ablation studies to characterize DeepInception from different perspectives.
-            </p>
-          </div>
-          <div class="columns is-centered">
-            <div class="column">
-              <div class="content has-text-centered">
-                <img src="./static/paper_imgs/abl_model.png" style="width:100%;"
-                class="result-image"
-                alt="Ablation Study I"/>
-              </div>
-            </div>
-            <div class="column">
-              <div class="content has-text-centered">
-                <img src="./static/paper_imgs/abl_dataset.png" style="width:100%;"
-                class="result-image"
-                alt="Ablation Study II"/>
-              </div>
-            </div>
-          </div>
-          <div class="content has-text-centered">
-            <p>
-              <b>Figure 9-10</b>. <b>Left:</b> Verifier transfer across models, <b>Right:</b> Verifier transfer across datasets.
-              Absolute accuracy changes with the verifier, compared to performance in Figure 7 (without the verifier). 
-        The verifier is trained on each column (dataset or model) and evaluated on all rows (other datasets or models). 
-        Positive values indicate improvement in accuracy with the verifier.
-            </p>
-          </div>
-          <br>
-          <div class="content has-text-justified is-centered">
-            <p>
-              More experiment setups and details can refer to our paper.
-            </p>
-          </div> -->
-      <!-- </div> -->
     </div>
   </div>
 </section>
@@ -480,19 +401,19 @@
   <div class="container is-max-desktop content">
     <h2 class="title">Contact</h2>
     <p>
-      Welcome to check our paper for more details of the research work. If there is any question, please feel free to contact us.
+      Welcome to check our paper for more details of the work. If there is any question, please feel free to contact us.
     </p>
     <p>
       If you find our paper and repo useful, please consider to cite:
     </p>
     <pre><code>
-      @misc{,
-        title={}, 
-        author={},
-        year={},
-        eprint={},
-        archivePrefix={},
-        primaryClass={}
+      @misc{zhou2025landscapethoughtsvisualizingreasoning,
+        title={Landscape of Thoughts: Visualizing the Reasoning Process of Large Language Models}, 
+        author={Zhanke Zhou and Zhaocheng Zhu and Xuan Li and Mikhail Galkin and Xiao Feng and Sanmi Koyejo and Jian Tang and Bo Han},
+        year={2025},
+        eprint={2503.22165},
+        archivePrefix={arXiv},
+        primaryClass={cs.LG}
   }
 </code></pre>
   </div>
