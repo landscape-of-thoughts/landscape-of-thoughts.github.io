@@ -66,6 +66,100 @@
       text-align: left;
     }
     
+    /* Landscape of Thoughts Examples section styles */
+    .examples-container {
+      margin-top: 100px;
+    }
+    
+    .examples-row {
+      width: 1800px;
+      overflow: visible;
+      text-align: left;
+      white-space: nowrap;
+      margin-left: -180px;
+    }
+    
+    .example-column {
+      display: inline-block;
+      width: 550px;
+      vertical-align: top;
+    }
+    
+    .example-column-left {
+      margin: 0 20px 0 0;
+    }
+    
+    .example-column-right {
+      margin: 0 0 0 20px;
+    }
+    
+    .example-title {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    .visualization-container {
+      width: 550px;
+      height: 480px;
+      margin: 0 auto;
+      position: relative;
+      overflow: visible;
+    }
+    
+    .visualization-iframe {
+      transform: scale(0.6);
+      transform-origin: 0 0;
+      width: 1000px;
+      height: 800px;
+      border: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    
+    .caption {
+      margin-top: 5px;
+      text-align: center;
+      font-style: italic;
+      font-size: 0.95em;
+    }
+    
+    .text-container {
+      width: 100%;
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .text-inner {
+      display: inline-block;
+      width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .text-iframe-container {
+      width: 1000px;
+      height: 240px;
+      margin: 0 auto;
+      position: relative;
+      overflow: visible;
+      margin-left: -225px;
+    }
+    
+    .text-iframe {
+      transform: scale(0.8);
+      transform-origin: 0 0;
+      width: 1800px;
+      height: 400px;
+      border: none;
+    }
+    
+    .text-caption-container {
+      margin-top: 100px;
+      text-align: center;
+      margin-left: -200px;
+    }
   </style>
 
 </head>
@@ -203,19 +297,149 @@
   </div>
 </section>
 
+
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Landscape of Thoughts Example</h2>
+        <h2 class="title is-3">Landscape of Thoughts Examples</h2>
         <div class="content has-text-justified">
           <p>
-            Using Landscape of Thoughts, we can see how LLMs derive the answer directly.
-  
+            We show the examples of landscape of thoughts: visualization of AQuA using Llama-3.1-70B across different reasoning methods.
           </p>
         </div>
-        <div class="content">
-          <iframe src="static/animations/demo.html" width="100%" height="600px" frameborder="0"></iframe>
+        <div class="examples-container">
+        <h3 class="title is-4">Chain-of-Thought (CoT)</h3>
+        <div class="examples-row">
+          <div class="example-column example-column-left">
+            <div class="example-title">Correct case</div>
+            <div class="visualization-container">
+              <iframe src="static/animations/Meta-Llama-3.1-70B-Instruct-Turbo-aqua-cot-correct.html" class="visualization-iframe" frameborder="0"></iframe>
+            </div>
+          </div>
+          
+          <div class="example-column example-column-right">
+            <div class="example-title">Wrong case</div>
+            <div class="visualization-container">
+              <iframe src="static/animations/Meta-Llama-3.1-70B-Instruct-Turbo-aqua-cot-wrong.html" class="visualization-iframe" frameborder="0"></iframe>
+            </div>
+          </div>
+          
+        </div>
+        <div class="caption">
+          <figcaption>click on the progress bar to see the landscape of reasoning process in a specific step.</figcaption>
+        </div>
+        <div class="text-container">
+          <div class="text-inner">
+            <div class="text-iframe-container">
+              <iframe src="static/animations/TextThought_Meta-Llama-3.1-70B-Instruct-Turbo-aqua-cot.html" class="text-iframe" frameborder="0"></iframe>
+            </div>
+            <div class="text-caption-container">
+              <figcaption class="caption">Hover over a node in the landscape below to see raw textual reasoning process.</figcaption>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <div class="examples-container">
+        <h3 class="title is-4">Least-to-Most (L2M)</h3>
+        <div class="examples-row">
+          <div class="example-column example-column-left">
+            <div class="example-title">Correct case</div>
+            <div class="visualization-container">
+              <iframe src="static/animations/Meta-Llama-3.1-70B-Instruct-Turbo-aqua-l2m-correct.html" class="visualization-iframe" frameborder="0"></iframe>
+            </div>
+          </div>
+          
+          <div class="example-column example-column-right">
+            <div class="example-title">Wrong case</div>
+            <div class="visualization-container">
+              <iframe src="static/animations/Meta-Llama-3.1-70B-Instruct-Turbo-aqua-l2m-wrong.html" class="visualization-iframe" frameborder="0"></iframe>
+            </div>
+          </div>
+          
+        </div>
+        <div class="caption">
+          <figcaption>click on the progress bar to see the landscape of reasoning process in a specific step.</figcaption>
+        </div>
+        <div class="text-container">
+          <div class="text-inner">
+            <div class="text-iframe-container">
+              <iframe src="static/animations/TextThought_Meta-Llama-3.1-70B-Instruct-Turbo-aqua-l2m.html" class="text-iframe" frameborder="0"></iframe>
+            </div>
+            <div class="text-caption-container">
+              <figcaption class="caption">Hover over a node in the landscape below to see raw textual reasoning process.</figcaption>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+        <div class="examples-container">
+        <h3 class="title is-4">Tree-of-Thought (ToT)</h3>
+        <div class="examples-row">
+          <div class="example-column example-column-left">
+            <div class="example-title">Correct case</div>
+            <div class="visualization-container">
+              <iframe src="static/animations/Meta-Llama-3.1-70B-Instruct-Turbo-aqua-tot-correct.html" class="visualization-iframe" frameborder="0"></iframe>
+            </div>
+          </div>
+          
+          <div class="example-column example-column-right">
+            <div class="example-title">Wrong case</div>
+            <div class="visualization-container">
+              <iframe src="static/animations/Meta-Llama-3.1-70B-Instruct-Turbo-aqua-tot-wrong.html" class="visualization-iframe" frameborder="0"></iframe>
+            </div>
+          </div>
+          
+        </div>
+        <div class="caption">
+          <figcaption>click on the progress bar to see the landscape of reasoning process in a specific step.</figcaption>
+        </div>
+        <div class="text-container">
+          <div class="text-inner">
+            <div class="text-iframe-container">
+              <iframe src="static/animations/TextThought_Meta-Llama-3.1-70B-Instruct-Turbo-aqua-tot.html" class="text-iframe" frameborder="0"></iframe>
+            </div>
+            <div class="text-caption-container">
+              <figcaption class="caption">Hover over a node in the landscape below to see raw textual reasoning process.</figcaption>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+        <div class="examples-container">
+        <h3 class="title is-4">Monte Carlo Tree Search (MCTS)</h3>
+        <div class="examples-row">
+          <div class="example-column example-column-left">
+            <div class="example-title">Correct case</div>
+            <div class="visualization-container">
+              <iframe src="static/animations/Meta-Llama-3.1-70B-Instruct-Turbo-aqua-mcts-correct.html" class="visualization-iframe" frameborder="0"></iframe>
+            </div>
+          </div>
+          
+          <div class="example-column example-column-right">
+            <div class="example-title">Wrong case</div>
+            <div class="visualization-container">
+              <iframe src="static/animations/Meta-Llama-3.1-70B-Instruct-Turbo-aqua-mcts-wrong.html" class="visualization-iframe" frameborder="0"></iframe>
+            </div>
+          </div>
+          
+        </div>
+        <div class="caption">
+          <figcaption>click on the progress bar to see the landscape of reasoning process in a specific step.</figcaption>
+        </div>
+        <div class="text-container">
+          <div class="text-inner">
+            <div class="text-iframe-container">
+              <iframe src="static/animations/TextThought_Meta-Llama-3.1-70B-Instruct-Turbo-aqua-mcts.html" class="text-iframe" frameborder="0"></iframe>
+            </div>
+            <div class="text-caption-container">
+              <figcaption class="caption">Hover over a node in the landscape below to see raw textual reasoning process.</figcaption>
+            </div>
+          </div>
+          </div>
         </div>
       </div>
     </div>
