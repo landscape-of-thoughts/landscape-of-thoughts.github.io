@@ -34,6 +34,7 @@
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <!-- <link rel="stylesheet" href="./static/css/font-awesome.min.css"> -->
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
@@ -41,10 +42,11 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <!-- <script defer src="./static/js/font-awesome.min.js"></script> -->
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
-
+  <script src="https://kit.fontawesome.com/72e8a0b873.js" crossorigin="anonymous"></script>
   <!-- Typing Effect JS -->
   <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script> 
   <script src="https://cdn.jsdelivr.net/jquery.typeit/4.4.0/typeit.min.js"></script>
@@ -173,25 +175,25 @@
           <h1 class="title is-1 publication-title">Landscape of Thoughts: Visualizing the Reasoning Process of Large Language Models</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://github.com/AndrewZhou924">Zhanke Zhou</a><sup>1*</sup>,
+              <a href="https://github.com/AndrewZhou924">Zhanke Zhou</a><sup>1 2*</sup>,
             </span>
             <span class="author-block">
-              <a href="https://kiddozhu.github.io/">Zhaocheng Zhu</a><sup>2*</sup>,
+              <a href="https://kiddozhu.github.io/">Zhaocheng Zhu</a><sup>3 4*</sup>,
             </span>
             <span class="author-block">
               <a href="https://github.com/XuanLi728">Xuan Li</a><sup>1*</sup>,
             </span>
             <span class="author-block">
-              <a href="https://migalkin.github.io/">Mikhail Galkin</a><sup>3</sup>,
+              <a href="https://migalkin.github.io/">Mikhail Galkin</a><sup>6</sup>,
             </span>
             <span class="author-block">
               <a href="https://github.com/KyrieXiao25">Xiao Feng</a><sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="https://cs.stanford.edu/~sanmi/">Sanmi Koyejo</a><sup>4</sup>,
+              <a href="https://cs.stanford.edu/~sanmi/">Sanmi Koyejo</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              <a href="https://jian-tang.com/">Jian Tang</a><sup>2</sup>,
+              <a href="https://jian-tang.com/">Jian Tang</a><sup>3 5</sup>,
             </span>
             <span class="author-block">
               <a href="https://bhanml.github.io/">Bo Han</a><sup>1</sup>,
@@ -199,10 +201,14 @@
           </div>
 
           <div class="is-size-5 publication-authors">
+            <!-- <span class="author-block"><sup>*</sup>Equal Contribution,</span> -->
             <span class="author-block"><sup>1</sup>TMLR Group, Hong Kong Baptist University,</span>
-            <span class="author-block"><sup>2</sup>Mila - Québec AI Institute</span>
-            <span class="author-block"><sup>3</sup>Intel Labs</span>
-            <span class="author-block"><sup>4</sup>Stanford University</span>
+            <span class="author-block"><sup>2</sup>Stanford University,</span>
+            <span class="author-block"><sup>3</sup>Mila - Québec AI Institute,</span>
+            <span class="author-block"><sup>4</sup>Université de Montréal,</span>
+            <span class="author-block"><sup>5</sup>HEC Montréal,</span>
+            <span class="author-block"><sup>6</sup>Intel Labs.</span>
+            
           </div>
 
           <div class="is-size-5 publication-authors">
@@ -214,8 +220,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <!-- TODO -->
-                <a href=""
+                <a href="https://arxiv.org/abs/2503.22165"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -225,13 +230,46 @@
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <!-- TODO -->
-                <a href="https://github.com/AndrewZhou924/trace-of-thoughts/tree/arxiv"
+                <a href="https://github.com/tmlr-group/landscape-of-thoughts"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
                   <span>Code</span>
+                  </a>
+              </span>
+              <!-- Tool Link. -->
+              <span class="link-block">
+                <!-- TODO: X Link -->
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fa-solid fa-hammer"></i>
+                  </span>
+                  <span>PIP</span>
+                  </a>
+              </span>
+
+              <!-- X Link. -->
+              <span class="link-block">
+                <!-- TODO: X Link -->
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fa-brands fa-x-twitter"></i>
+                  </span>
+                  <span>X-Twitter</span>
+                  </a>
+              </span>
+
+              <!-- TODO: Poster Link -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fa-solid fa-newspaper"></i>
+                  </span>
+                  <span>Poster</span>
                   </a>
               </span>
 
@@ -255,7 +293,7 @@
             Numerous applications of large language models (LLMs) rely on their ability to perform step-by-step reasoning. However, the reasoning behavior of LLMs remains poorly understood, posing challenges to research, development, and safety. To address this gap, we introduce <i>landscape of thoughts</i>-the first visualization tool for users to inspect the reasoning paths of chain-of-thought and its derivatives on any multi-choice dataset. Specifically, we represent the states in a reasoning path as feature vectors that quantify their distances to all answer choices. These features are then visualized in two-dimensional plots using t-SNE. Qualitative analysis shows that the landscape of thoughts effectively distinguishes between strong and weak models, correct and incorrect answers, as well as different reasoning tasks. It also uncovers undesirable reasoning patterns, such as low consistency and high uncertainty. Additionally, users can adapt our tool to a model that predicts any property they observe. We showcase this advantage by adapting our tool to a lightweight verifier, which significantly improves reasoning by evaluating the correctness of reasoning paths.
           </p> -->
           <p>
-            We propose Landscape of Thoughts, a visualization tool that maps reasoning paths in LLMs using perplexity-based features and t-SNE projection, revealing patterns in success and failure cases.
+            Large language models (LLMs) increasingly rely on step-by-step reasoning for various applications, yet their reasoning processes remain poorly understood, hindering research, development, and safety efforts. To address this, we introduce <i>Landscape of Thoughts</i>, the first visualization tool designed to explore the reasoning paths of chain-of-thought and its derivatives across any multiple-choice dataset. We represent reasoning states as feature vectors, capturing their distances to all answer choices, and visualize them in 2D using t-SNE. Through qualitative and quantitative analysis, <i>Landscape of Thoughts</i> effectively distinguishes strong versus weak models, correct versus incorrect answers, and diverse reasoning tasks. It also reveals undesirable reasoning patterns, such as inconsistency and high uncertainty. Furthermore, users can adapt the tool to predict specific properties, as demonstrated by a lightweight verifier that evaluates reasoning correctness.
           </p>
         </div>
       </div>
@@ -593,7 +631,7 @@
 
         <div class="content has-text-justified is-centered">
           <p>
-            Based on the observations from visualization, the landscape of thoughts method has the potential to be adapted to a model to predict any property users observe, here we show examples of using it to predict the correctness of the reasoning paths in Figure 1.
+            Based on the observations from visualization, the landscape of thoughts method has the potential to be adapted to a model to predict any property users observe, here we show examples of using it to predict the correctness of the reasoning paths.
           </p>
         </div>        
           <div class="content has-text-centered">
@@ -631,14 +669,13 @@
       If you find our paper and repo useful, please consider to cite:
     </p>
     <pre><code>
-      @misc{zhou2025landscapethoughtsvisualizingreasoning,
-        title={Landscape of Thoughts: Visualizing the Reasoning Process of Large Language Models}, 
-        author={Zhanke Zhou and Zhaocheng Zhu and Xuan Li and Mikhail Galkin and Xiao Feng and Sanmi Koyejo and Jian Tang and Bo Han},
+      @article{zhou2025landscape,
+        title={Landscape of Thoughts: Visualizing the Reasoning Process of Large Language Models},
+        author={Zhou, Zhanke and Zhu, Zhaocheng and Li, Xuan and Galkin, Mikhail and Feng, Xiao and Koyejo, Sanmi and Tang, Jian and Han, Bo},
+        journal={arXiv preprint arXiv:2503.22165},
         year={2025},
-        eprint={2503.22165},
-        archivePrefix={arXiv},
-        primaryClass={cs.LG}
-  }
+        url={https://arxiv.org/abs/2503.22165}
+      }
 </code></pre>
   </div>
 </section>
