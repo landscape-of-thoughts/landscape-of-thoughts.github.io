@@ -316,12 +316,25 @@
     <div class="toc-item" onclick="scrollToSection('landscape')">
       Landscape of Thoughts
     </div>
-    <div class="toc-item" onclick="scrollToSection('experiences')">
-      Visualization Experiences
+    <div class="toc-item" onclick="scrollToSection('experiments')">
+      More Visualizations & Insights
+    </div>
+    <div class="toc-subitem" onclick="scrollToSection('algorithm')">
+      Algorithm
+    </div>
+    <div class="toc-subitem" onclick="scrollToSection('dataset')">
+      Dataset
+    </div>
+    <div class="toc-subitem" onclick="scrollToSection('model')">
+      Model
+    </div>
+    <div class="toc-item" onclick="scrollToSection('reasoning-models')">
+      Landscape of Advanced Reasoning Models
     </div>
     <div class="toc-item" onclick="scrollToSection('verifier')">
       A Lightweight Verifier to Predictive Models
     </div>
+    
     <div class="toc-item" onclick="scrollToSection('contact')">
       Contact
     </div>
@@ -336,7 +349,7 @@
           <h1 class="title is-1 publication-title">Landscape of Thoughts:<br>Visualizing the Reasoning Process<br> of Large Language Models</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://github.com/AndrewZhou924">Zhanke Zhou</a><sup>1 2*</sup>,
+              <a href="https://andrewzhou924.github.io/">Zhanke Zhou</a><sup>1 2*</sup>,
             </span>
             <span class="author-block">
               <a href="https://kiddozhu.github.io/">Zhaocheng Zhu</a><sup>3 4*</sup>,
@@ -420,7 +433,7 @@
                   <span class="icon">
                     <i class="fa-brands fa-x-twitter"></i>
                   </span>
-                  <span>X-Twitter</span>
+                  <span>Post</span>
                   </a>
               </span>
 
@@ -451,9 +464,6 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <!-- <p>
-            Numerous applications of large language models (LLMs) rely on their ability to perform step-by-step reasoning. However, the reasoning behavior of LLMs remains poorly understood, posing challenges to research, development, and safety. To address this gap, we introduce <i>landscape of thoughts</i>-the first visualization tool for users to inspect the reasoning paths of chain-of-thought and its derivatives on any multi-choice dataset. Specifically, we represent the states in a reasoning path as feature vectors that quantify their distances to all answer choices. These features are then visualized in two-dimensional plots using t-SNE. Qualitative analysis shows that the landscape of thoughts effectively distinguishes between strong and weak models, correct and incorrect answers, as well as different reasoning tasks. It also uncovers undesirable reasoning patterns, such as low consistency and high uncertainty. Additionally, users can adapt our tool to a model that predicts any property they observe. We showcase this advantage by adapting our tool to a lightweight verifier, which significantly improves reasoning by evaluating the correctness of reasoning paths.
-          </p> -->
           <p>
             Large language models (LLMs) increasingly rely on step-by-step reasoning for various applications, yet their reasoning processes remain poorly understood, hindering research, development, and safety efforts. To address this, we introduce <i>Landscape of Thoughts</i>, the first visualization tool designed to explore the reasoning paths of chain-of-thought and its derivatives across any multiple-choice dataset. We represent reasoning states as feature vectors, capturing their distances to all answer choices, and visualize them in 2D using t-SNE. Through qualitative and quantitative analysis, <i>Landscape of Thoughts</i> effectively distinguishes strong versus weak models, correct versus incorrect answers, and diverse reasoning tasks. It also reveals undesirable reasoning patterns, such as inconsistency and high uncertainty. Furthermore, users can adapt the tool to predict specific properties, as demonstrated by a lightweight verifier that evaluates reasoning correctness.
           </p>
@@ -485,10 +495,6 @@
                 height="600" />
               <p><b>Figure 1</b>. Landscape of thoughts for visualizing the reasoning steps of LLMs.</p>
           </div>
-          <!-- / Add image -->
-          <!-- <p>
-            Although large language models (LLMs) excel in applications like tool use and step-by-step reasoning, their underlying reasoning behavior remains poorly understood. Current understanding studies focus on specific tasks or decoding methods, lacking general methods to analyze reasoning across user-defined scenarios. In this work, we propose Landscape of Thoughts, a visualization tool that maps reasoning paths in LLMs using perplexity-based features and t-SNE projection, revealing patterns in success and failure cases in Figure 1.
-          </p> -->
         </div>
       </div>
     </div>
@@ -664,9 +670,13 @@
             <li> <b>Characterizing the states:</b> We characterize intermediate thoughts, measure their distances to possible choices in a unified feature space.
             </li>
             <li> <b>Visualization:</b> We project the high-dimensional feature matrix into 2D space, and smooth the discrete points into a continuous density map. </li>
-              <!-- We project the high-dimensional feature matrix into 2D space using t-SNE for visualization, then apply Parzen window estimation to smooth the discrete points into a continuous density map for better interpretability. </li> -->
           </ul>
-
+          In addition, we also introduce three quantitative metrics to help understand the reasoning behaviors of LLMs at different steps.
+          <ul>
+            <li> <b>Consistency:</b> whether the LLM knows the answer before generating all thoughts</li>
+            <li> <b>Uncertainty:</b> how confident the LLM is about its predictions at intermediate steps</li>
+            <li> <b>Perplexity:</b> how confident the LLM is about its thoughts</li>
+          </ul>
         </p>
       </div>
       <div class="figure" style="align: left; text-align:center;">
@@ -685,7 +695,7 @@
 
 
 
-<section class="section" id="experiences">
+<section class="section" id="experiments">
   <div class="container is-max-desktop">
 
     <div class="columns is-centered has-text-centered">
@@ -694,27 +704,22 @@
         
         <div class="content has-text-justified">
           <p>
-            We qualitatively analyze the landscape of thoughts for different datasets and language models. Besides, we also introduce three quantitative metrics to help understand
-            the behavior of the LLM at different reasoning steps. 
-            <ul>
-              <li> <b>Consistency:</b> whether the LLM knows the answer before generating all thoughts</li>
-              <li> <b>Uncertainty:</b> how confident the LLM is about its predictions at intermediate steps</li>
-              <li> <b>Perplexity:</b> how confident the LLM is about its thoughts</li>
-            </ul>
+            We analyze the landscape of thoughts across different methods, datasets and LLMs.
           </p>
           
         </div>
 
 
         <!-- Example 1 -->
-        <!-- <h3 class="title is-3">Example 1</h3> -->
+        <h3 class="title is-3" id="algorithm">Different Algorithms</h3>
         <div class="content has-text-justified">
           <!-- Add image -->
           <div class="figure" style="align: left; text-align:center; margin: 0 -200px; overflow: visible;">
               <img src="./static/paper_imgs/visual_exp1.png" 
               class="example-image"
               alt="LoT for different algorithms."
-              width="1500" /> 
+              width="1500"
+              id="algorithm" /> 
                <p><b>Figure 3</b>. Comparing the landscapes and corresponding metrics of four reasoning algorithms (using Llama-3.1-70B on the AQuA dataset).  </p>
           </div>
           <div class="content has-text-justified">
@@ -735,14 +740,15 @@
         <!--/ Example 1 -->
 
         <!-- Example 2 -->
-        <!-- <h3 class="title is-3">Example 2</h3> -->
+        <h3 class="title is-3" id="dataset">Different Datasets</h3>
         <div class="content has-text-justified">
           <!-- Add image -->
           <div class="figure" style="align: left; text-align:center; margin: 0 -200px; overflow: visible;">
               <img src="./static/paper_imgs/visual_exp2.png" 
               class="example-image"
               alt="LoT for different datasets."
-              width="1500" /> 
+              width="1500"
+              id="dataset" /> 
                <p><b>Figure 4</b>. Comparing the landscapes and corresponding metrics of different datasets (using Llama-3.1-70B with CoT). </p>
           </div>
           <div class="content has-text-justified">
@@ -761,14 +767,15 @@
         <!--/ Example 2 -->
 
         <!-- Example 3 -->
-        <!-- <h3 class="title is-3">Example 2</h3> -->
+        <h3 class="title is-3" id="model">Different Language Models</h3>
         <div class="content has-text-justified">
           <!-- Add image -->
           <div class="figure" style="align: left; text-align:center; margin: 0 -200px; overflow: visible;">
               <img src="./static/paper_imgs/visual_exp3.png" 
               class="example-image"
               alt="LoT for different models."
-              width="1500" /> 
+              width="1500"
+               /> 
               <p> <b>Figure 5</b>. Comparing the landscapes and corresponding metrics of different language models (with CoT on the AQuA
                 dataset). </p>
           </div>
@@ -776,7 +783,7 @@
           <!-- / Add image -->
         </div>
         <!--/ Example 3 -->
-        <div class="content has-text-justified">
+      <div class="content has-text-justified">
       <p>
         We can use Landscape of Thoughts to analyze the reasoning process of different models.
       <ul>
@@ -786,6 +793,54 @@
       </ul>
     </p>
     </div>
+
+    <!--/ Reasoning Models  -->
+    <h3 class="title is-3" id="reasoning-models">Landscape of Advanced Reasoning Models</h3>
+    <div class="content has-text-justified">
+      <p>
+        We present visualizations of the reasoning process for several advanced language models. Specifically, we analyze the CoT reasoning patterns of <b>QwQ-32B</b>, <b>DeepSeek-R1-Distilled-Llama-70B</b>, and <b>DeepSeek-R1-Distilled-Qwen-1.5B</b> on the AQuA dataset.
+    </p>
+    </div>
+    <div class="content has-text-justified">
+      <!-- Add image -->
+      <div class="figure" style="align: left; text-align:center; margin: 0 -200px; overflow: visible;">
+          <img src="./static/paper_imgs/qwq-32b-cot-aqua.png" 
+          class="example-image"
+          alt="Case of QwQ-32B."
+          width="1500"
+           /> 
+          <p> <b>Figure 6</b>. Landscape of QwQ-32B using CoT on AQuA. </p>
+      </div>
+      <br>
+      <!-- / Add image -->
+    </div>
+    <div class="content has-text-justified">
+      <!-- Add image -->
+      <div class="figure" style="align: left; text-align:center; margin: 0 -200px; overflow: visible;">
+          <img src="./static/paper_imgs/distilled-llama-70b-cot-aqua.png" 
+          class="example-image"
+          alt="Case of DeepSeek-R1-Distilled-Llama-70B."
+          width="1500"
+           /> 
+          <p> <b>Figure 7</b>. Landscape of DeepSeek-R1-Distilled-Llama-70B using CoT on AQuA. </p>
+      </div>
+      <br>
+      <!-- / Add image -->
+    </div>
+    <div class="content has-text-justified">
+      <!-- Add image -->
+      <div class="figure" style="align: left; text-align:center; margin: 0 -200px; overflow: visible;">
+          <img src="./static/paper_imgs/distilled-qwen-1.5b-cot-aqua.png" 
+          class="example-image"
+          alt="Case of DeepSeek-R1-Distilled-Qwen-1.5B."
+          width="1500"
+           /> 
+          <p> <b>Figure 8</b>. Landscape of DeepSeek-R1-Distilled-Qwen-1.5B using CoT on AQuA. </p>
+      </div>
+      <br>
+      <!-- / Add image -->
+    </div>
+
       </div>
     </div>
   </div>
@@ -804,7 +859,7 @@
           </p>
         </div>        
           <div class="content has-text-centered">
-            <p><b>Figure 6</b>. Reasoning accuracy averaging across all dataset.</p>
+            <p><b>Figure 9</b>. Reasoning accuracy averaging across all dataset.</p>
             <img src="./static/paper_imgs/average_performance.png" style="width:1500px;"
             class="result-image"
             alt="Interpolation end reference image."/>
@@ -818,7 +873,7 @@
             </p>
           </div>
           <div class="content has-text-centered">
-            <p><b>Figure 7</b>. Demonstration of the inference-time scaling effect of the verifier.</p>
+            <p><b>Figure 10</b>. Demonstration of the inference-time scaling effect of the verifier.</p>
             <img src="./static/paper_imgs/inference_scaling.png" style="width:1500px;"
             class="result-image"
             alt="Interpolation end reference image."/>
@@ -924,7 +979,7 @@ function updateActiveTOCItem(currentSectionId) {
 function updateTOCOnScroll() {
   const sections = [
     'abstract', 'introduction', 'examples', 'cot', 'l2m', 'tot', 'mcts', 
-    'landscape', 'experiences', 'verifier', 'contact'
+    'landscape', 'experiments', 'algorithm', 'dataset', 'model', 'reasoning-models', 'verifier', 'contact'
   ];
   
   const scrollPosition = window.scrollY + 100; // Offset for better detection
