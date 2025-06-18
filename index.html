@@ -277,6 +277,90 @@
       text-align: center;
       margin-left: -200px;
     }
+    
+    /* Custom Video Player Styles */
+    .video-player-container {
+      width: 550px;
+      height: 480px;
+      margin: 0 auto;
+      position: relative;
+      background: #000;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    
+    .video-player-container:hover {
+      transform: scale(1.02);
+    }
+    
+    .video-player {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000;
+      pointer-events: none; /* Prevent video element from capturing clicks */
+    }
+    
+    .video-controls {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+      padding: 20px 15px 15px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .video-player-container:hover .video-controls {
+      opacity: 1;
+    }
+    
+    .progress-container {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 3px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+    
+    .progress-bar {
+      height: 100%;
+      background: #007bff;
+      border-radius: 3px;
+      width: 0%;
+      transition: width 0.1s ease;
+    }
+    
+    .control-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .play-pause-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 5px;
+      border-radius: 4px;
+      transition: background 0.2s ease;
+    }
+    
+    .play-pause-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    
+    .time-display {
+      color: white;
+      font-size: 14px;
+      font-family: monospace;
+    }
   </style>
 
 </head>
@@ -504,6 +588,8 @@
 </section>
 
 
+
+
 <section class="section" id="examples">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
@@ -515,36 +601,64 @@
           </p>
         </div>
         <div class="examples-container">
-        <h3 class="title is-4" id="cot">Chain-of-Thought (CoT)</h3>
-        <div class="examples-row">
-          <div class="example-column example-column-left">
-            <div class="example-title">Correct case</div>
-            <div class="visualization-container">
-              <iframe src="static/animations/Meta-Llama-3.1-70B-Instruct-Turbo-aqua-cot-correct.html" class="visualization-iframe" frameborder="0"></iframe>
+          <h3 class="title is-4" id="cot">Chain-of-Thought (CoT)</h3>
+          <div class="examples-row">
+            <div class="example-column example-column-left">
+              <div class="example-title">Correct case</div>
+              <div class="video-player-container" style="aspect-ratio: 16/9; background-color: white;">
+                <video class="video-player" id="cot-correct-video" style="width: 100%; height: 100%; object-fit: contain;">
+                  <source src="static/video/chain_animation_Meta-Llama-3.1-70B-Instruct-Turbo_aqua_cot_correct.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <div class="video-controls">
+                  <div class="progress-container" id="cot-correct-progress">
+                    <div class="progress-bar" id="cot-correct-progress-bar"></div>
+                  </div>
+                  <div class="control-buttons">
+                    <button class="play-pause-btn" id="cot-correct-play-btn">
+                      <i class="fas fa-play"></i>
+                    </button>
+                    <div class="time-display" id="cot-correct-time">0:00 / 0:00</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="example-column example-column-right">
+              <div class="example-title">Wrong case</div>
+              <div class="video-player-container" style="aspect-ratio: 16/9; background-color: white;">
+                <video class="video-player" id="cot-wrong-video" style="width: 100%; height: 100%; object-fit: contain;">
+                  <source src="static/video/chain_animation_Meta-Llama-3.1-70B-Instruct-Turbo_aqua_cot_wrong.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <div class="video-controls">
+                  <div class="progress-container" id="cot-wrong-progress">
+                    <div class="progress-bar" id="cot-wrong-progress-bar"></div>
+                  </div>
+                  <div class="control-buttons">
+                    <button class="play-pause-btn" id="cot-wrong-play-btn">
+                      <i class="fas fa-play"></i>
+                    </button>
+                    <div class="time-display" id="cot-wrong-time">0:00 / 0:00</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          
-          <div class="example-column example-column-right">
-            <div class="example-title">Wrong case</div>
-            <div class="visualization-container">
-              <iframe src="static/animations/Meta-Llama-3.1-70B-Instruct-Turbo-aqua-cot-wrong.html" class="visualization-iframe" frameborder="0"></iframe>
+          <div class="caption">
+            <figcaption>Click the display button to observe how the reasoning landscape evolves along the trajectory.</figcaption>
+          </div>
+          <br>
+          <div class="text-container">
+            <div class="text-inner">
+              <div class="text-iframe-container">
+                <iframe src="static/animations/TextThought_Meta-Llama-3.1-70B-Instruct-Turbo-aqua-cot.html" class="text-iframe" frameborder="0"></iframe>
+              </div>
+              <div class="text-caption-container">
+                <figcaption class="caption">Hover over a node in the landscape below to see raw textual reasoning process.</figcaption>
+              </div>
             </div>
           </div>
-          
-        </div>
-        <div class="caption">
-          <figcaption>click on the progress bar to see the landscape of reasoning process in a specific step.</figcaption>
-        </div>
-        <div class="text-container">
-          <div class="text-inner">
-            <div class="text-iframe-container">
-              <iframe src="static/animations/TextThought_Meta-Llama-3.1-70B-Instruct-Turbo-aqua-cot.html" class="text-iframe" frameborder="0"></iframe>
-            </div>
-            <div class="text-caption-container">
-              <figcaption class="caption">Hover over a node in the landscape below to see raw textual reasoning process.</figcaption>
-            </div>
-          </div>
-        </div>
         </div>
 
         <div class="examples-container">
@@ -552,21 +666,48 @@
         <div class="examples-row">
           <div class="example-column example-column-left">
             <div class="example-title">Correct case</div>
-            <div class="visualization-container">
-              <iframe src="static/animations/Meta-Llama-3.1-70B-Instruct-Turbo-aqua-l2m-correct.html" class="visualization-iframe" frameborder="0"></iframe>
+            <div class="video-player-container" style="aspect-ratio: 16/9; background-color: white;">
+              <video class="video-player" id="l2m-correct-video" style="width: 100%; height: 100%; object-fit: contain;">
+                <source src="static/video/chain_animation_Meta-Llama-3.1-70B-Instruct-Turbo_aqua_l2m_correct.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <div class="video-controls">
+                <div class="progress-container" id="l2m-correct-progress">
+                  <div class="progress-bar" id="l2m-correct-progress-bar"></div>
+                </div>
+                <div class="control-buttons">
+                  <button class="play-pause-btn" id="l2m-correct-play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="time-display" id="l2m-correct-time">0:00 / 0:00</div>
+                </div>
+              </div>
             </div>
           </div>
           
           <div class="example-column example-column-right">
             <div class="example-title">Wrong case</div>
-            <div class="visualization-container">
-              <iframe src="static/animations/Meta-Llama-3.1-70B-Instruct-Turbo-aqua-l2m-wrong.html" class="visualization-iframe" frameborder="0"></iframe>
+            <div class="video-player-container" style="aspect-ratio: 16/9; background-color: white;">
+              <video class="video-player" id="l2m-wrong-video" style="width: 100%; height: 100%; object-fit: contain;">
+                <source src="static/video/chain_animation_Meta-Llama-3.1-70B-Instruct-Turbo_aqua_l2m_wrong.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <div class="video-controls">
+                <div class="progress-container" id="l2m-wrong-progress">
+                  <div class="progress-bar" id="l2m-wrong-progress-bar"></div>
+                </div>
+                <div class="control-buttons">
+                  <button class="play-pause-btn" id="l2m-wrong-play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="time-display" id="l2m-wrong-time">0:00 / 0:00</div>
+                </div>
+              </div>
             </div>
           </div>
-          
         </div>
         <div class="caption">
-          <figcaption>click on the progress bar to see the landscape of reasoning process in a specific step.</figcaption>
+          <figcaption>Click the display button to observe how the reasoning landscape evolves along the trajectory.</figcaption>
         </div>
         <div class="text-container">
           <div class="text-inner">
@@ -578,29 +719,55 @@
             </div>
           </div>
         </div>
-      </div>
-
+        </div>
 
         <div class="examples-container">
         <h3 class="title is-4" id="tot">Tree-of-Thought (ToT)</h3>
         <div class="examples-row">
           <div class="example-column example-column-left">
             <div class="example-title">Correct case</div>
-            <div class="visualization-container">
-              <iframe src="static/animations/Meta-Llama-3.1-70B-Instruct-Turbo-aqua-tot-correct.html" class="visualization-iframe" frameborder="0"></iframe>
+            <div class="video-player-container" style="aspect-ratio: 16/9; background-color: white;">
+              <video class="video-player" id="tot-correct-video" style="width: 100%; height: 100%; object-fit: contain;">
+                <source src="static/video/chain_animation_Meta-Llama-3.1-70B-Instruct-Turbo_aqua_tot_correct.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <div class="video-controls">
+                <div class="progress-container" id="tot-correct-progress">
+                  <div class="progress-bar" id="tot-correct-progress-bar"></div>
+                </div>
+                <div class="control-buttons">
+                  <button class="play-pause-btn" id="tot-correct-play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="time-display" id="tot-correct-time">0:00 / 0:00</div>
+                </div>
+              </div>
             </div>
           </div>
           
           <div class="example-column example-column-right">
             <div class="example-title">Wrong case</div>
-            <div class="visualization-container">
-              <iframe src="static/animations/Meta-Llama-3.1-70B-Instruct-Turbo-aqua-tot-wrong.html" class="visualization-iframe" frameborder="0"></iframe>
+            <div class="video-player-container" style="aspect-ratio: 16/9; background-color: white;">
+              <video class="video-player" id="tot-wrong-video" style="width: 100%; height: 100%; object-fit: contain;">
+                <source src="static/video/chain_animation_Meta-Llama-3.1-70B-Instruct-Turbo_aqua_tot_wrong.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <div class="video-controls">
+                <div class="progress-container" id="tot-wrong-progress">
+                  <div class="progress-bar" id="tot-wrong-progress-bar"></div>
+                </div>
+                <div class="control-buttons">
+                  <button class="play-pause-btn" id="tot-wrong-play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="time-display" id="tot-wrong-time">0:00 / 0:00</div>
+                </div>
+              </div>
             </div>
           </div>
-          
         </div>
         <div class="caption">
-          <figcaption>click on the progress bar to see the landscape of reasoning process in a specific step.</figcaption>
+          <figcaption>Click the display button to observe how the reasoning landscape evolves along the trajectory.</figcaption>
         </div>
         <div class="text-container">
           <div class="text-inner">
@@ -620,21 +787,48 @@
         <div class="examples-row">
           <div class="example-column example-column-left">
             <div class="example-title">Correct case</div>
-            <div class="visualization-container">
-              <iframe src="static/animations/Meta-Llama-3.1-70B-Instruct-Turbo-aqua-mcts-correct.html" class="visualization-iframe" frameborder="0"></iframe>
+            <div class="video-player-container" style="aspect-ratio: 16/9; background-color: white;">
+              <video class="video-player" id="mcts-correct-video" style="width: 100%; height: 100%; object-fit: contain;">
+                <source src="static/video/chain_animation_Meta-Llama-3.1-70B-Instruct-Turbo_aqua_mcts_correct.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <div class="video-controls">
+                <div class="progress-container" id="mcts-correct-progress">
+                  <div class="progress-bar" id="mcts-correct-progress-bar"></div>
+                </div>
+                <div class="control-buttons">
+                  <button class="play-pause-btn" id="mcts-correct-play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="time-display" id="mcts-correct-time">0:00 / 0:00</div>
+                </div>
+              </div>
             </div>
           </div>
           
           <div class="example-column example-column-right">
             <div class="example-title">Wrong case</div>
-            <div class="visualization-container">
-              <iframe src="static/animations/Meta-Llama-3.1-70B-Instruct-Turbo-aqua-mcts-wrong.html" class="visualization-iframe" frameborder="0"></iframe>
+            <div class="video-player-container" style="aspect-ratio: 16/9; background-color: white;">
+              <video class="video-player" id="mcts-wrong-video" style="width: 100%; height: 100%; object-fit: contain;">
+                <source src="static/video/chain_animation_Meta-Llama-3.1-70B-Instruct-Turbo_aqua_mcts_wrong.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <div class="video-controls">
+                <div class="progress-container" id="mcts-wrong-progress">
+                  <div class="progress-bar" id="mcts-wrong-progress-bar"></div>
+                </div>
+                <div class="control-buttons">
+                  <button class="play-pause-btn" id="mcts-wrong-play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="time-display" id="mcts-wrong-time">0:00 / 0:00</div>
+                </div>
+              </div>
             </div>
           </div>
-          
         </div>
         <div class="caption">
-          <figcaption>click on the progress bar to see the landscape of reasoning process in a specific step.</figcaption>
+          <figcaption>Click the display button to observe how the reasoning landscape evolves along the trajectory.</figcaption>
         </div>
         <div class="text-container">
           <div class="text-inner">
@@ -795,51 +989,59 @@
     </div>
 
     <!--/ Reasoning Models  -->
-    <h3 class="title is-3" id="reasoning-models">Landscape of Advanced Reasoning Models</h3>
-    <div class="content has-text-justified">
-      <p>
-        We present visualizations of the reasoning process for several advanced language models. Specifically, we analyze the CoT reasoning patterns of <b>QwQ-32B</b>, <b>DeepSeek-R1-Distilled-Llama-70B</b>, and <b>DeepSeek-R1-Distilled-Qwen-1.5B</b> on the AQuA dataset.
-    </p>
-    </div>
-    <div class="content has-text-justified">
-      <!-- Add image -->
-      <div class="figure" style="align: left; text-align:center; margin: 0 -200px; overflow: visible;">
-          <img src="./static/paper_imgs/qwq-32b-cot-aqua.png" 
-          class="example-image"
-          alt="Case of QwQ-32B."
-          width="1500"
-           /> 
-          <p> <b>Figure 6</b>. Landscape of QwQ-32B using CoT on AQuA. </p>
+    <section class="section" id="reasoning-models">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h3 class="title is-3">Landscape of Advanced Reasoning Models</h3>
+            <div class="content has-text-justified">
+              <p>
+                We present visualizations of the reasoning process for several advanced language models. Specifically, we analyze the CoT reasoning patterns of <b>QwQ-32B</b>, <b>DeepSeek-R1-Distilled-Llama-70B</b>, and <b>DeepSeek-R1-Distilled-Qwen-1.5B</b> on the AQuA dataset.
+              </p>
+            </div>
+            <div class="content has-text-justified">
+              <!-- Add image -->
+              <div class="figure" style="align: left; text-align:center; margin: 0 -200px; overflow: visible;">
+                  <img src="./static/paper_imgs/qwq-32b-cot-aqua.png" 
+                  class="example-image"
+                  alt="Case of QwQ-32B."
+                  width="1500"
+                   /> 
+                  <p> <b>Figure 6</b>. Landscape of QwQ-32B using CoT on AQuA. </p>
+              </div>
+              <br>
+              <!-- / Add image -->
+            </div>
+            <div class="content has-text-justified">
+              <!-- Add image -->
+              <div class="figure" style="align: left; text-align:center; margin: 0 -200px; overflow: visible;">
+                  <img src="./static/paper_imgs/distilled-llama-70b-cot-aqua.png" 
+                  class="example-image"
+                  alt="Case of DeepSeek-R1-Distilled-Llama-70B."
+                  width="1500"
+                   /> 
+                  <p> <b>Figure 7</b>. Landscape of DeepSeek-R1-Distilled-Llama-70B using CoT on AQuA. </p>
+              </div>
+              <br>
+              <!-- / Add image -->
+            </div>
+            <div class="content has-text-justified">
+              <!-- Add image -->
+              <div class="figure" style="align: left; text-align:center; margin: 0 -200px; overflow: visible;">
+                  <img src="./static/paper_imgs/distilled-qwen-1.5b-cot-aqua.png" 
+                  class="example-image"
+                  alt="Case of DeepSeek-R1-Distilled-Qwen-1.5B."
+                  width="1500"
+                   /> 
+                  <p> <b>Figure 8</b>. Landscape of DeepSeek-R1-Distilled-Qwen-1.5B using CoT on AQuA. </p>
+              </div>
+              <br>
+              <!-- / Add image -->
+            </div>
+          </div>
+        </div>
       </div>
-      <br>
-      <!-- / Add image -->
-    </div>
-    <div class="content has-text-justified">
-      <!-- Add image -->
-      <div class="figure" style="align: left; text-align:center; margin: 0 -200px; overflow: visible;">
-          <img src="./static/paper_imgs/distilled-llama-70b-cot-aqua.png" 
-          class="example-image"
-          alt="Case of DeepSeek-R1-Distilled-Llama-70B."
-          width="1500"
-           /> 
-          <p> <b>Figure 7</b>. Landscape of DeepSeek-R1-Distilled-Llama-70B using CoT on AQuA. </p>
-      </div>
-      <br>
-      <!-- / Add image -->
-    </div>
-    <div class="content has-text-justified">
-      <!-- Add image -->
-      <div class="figure" style="align: left; text-align:center; margin: 0 -200px; overflow: visible;">
-          <img src="./static/paper_imgs/distilled-qwen-1.5b-cot-aqua.png" 
-          class="example-image"
-          alt="Case of DeepSeek-R1-Distilled-Qwen-1.5B."
-          width="1500"
-           /> 
-          <p> <b>Figure 8</b>. Landscape of DeepSeek-R1-Distilled-Qwen-1.5B using CoT on AQuA. </p>
-      </div>
-      <br>
-      <!-- / Add image -->
-    </div>
+    </section>
 
       </div>
     </div>
@@ -952,9 +1154,13 @@ function toggleTOC() {
 function scrollToSection(sectionId) {
   const element = document.getElementById(sectionId);
   if (element) {
-    element.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
+    // Calculate offset based on viewport and potential fixed elements
+    const offset = Math.max(100, window.innerHeight * 0.1); // At least 100px or 10% of viewport
+    const elementPosition = element.offsetTop - offset;
+    
+    window.scrollTo({
+      top: Math.max(0, elementPosition), // Ensure we don't scroll to negative position
+      behavior: 'smooth'
     });
     
     // Update active state in TOC
@@ -975,6 +1181,19 @@ function updateActiveTOCItem(currentSectionId) {
   }
 }
 
+// Debounce function to limit how often updateTOCOnScroll is called
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
 // Auto-update active TOC item on scroll
 function updateTOCOnScroll() {
   const sections = [
@@ -982,27 +1201,50 @@ function updateTOCOnScroll() {
     'landscape', 'experiments', 'algorithm', 'dataset', 'model', 'reasoning-models', 'verifier', 'contact'
   ];
   
-  const scrollPosition = window.scrollY + 100; // Offset for better detection
+  const scrollPosition = window.scrollY + 200; // Increased offset for better detection
+  let currentSection = 'abstract'; // Default section
   
-  for (let i = sections.length - 1; i >= 0; i--) {
+  // Find the current section based on scroll position
+  for (let i = 0; i < sections.length; i++) {
     const section = document.getElementById(sections[i]);
     if (section) {
       const sectionTop = section.offsetTop;
-      if (scrollPosition >= sectionTop) {
-        updateActiveTOCItem(sections[i]);
+      const sectionBottom = sectionTop + section.offsetHeight;
+      
+      // Check if scroll position is within this section
+      if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+        currentSection = sections[i];
         break;
+      }
+      
+      // If we're past the last section, use the last one
+      if (i === sections.length - 1 && scrollPosition >= sectionTop) {
+        currentSection = sections[i];
       }
     }
   }
+  
+  // Only update if the section has changed
+  const currentActiveItem = document.querySelector('.toc-item.active, .toc-subitem.active');
+  const targetItem = document.querySelector(`[onclick="scrollToSection('${currentSection}')"]`);
+  
+  if (!currentActiveItem || currentActiveItem !== targetItem) {
+    updateActiveTOCItem(currentSection);
+  }
 }
+
+// Debounced version of updateTOCOnScroll
+const debouncedUpdateTOC = debounce(updateTOCOnScroll, 50);
 
 // Initialize TOC functionality
 document.addEventListener('DOMContentLoaded', function() {
   // Add scroll event listener
-  window.addEventListener('scroll', updateTOCOnScroll);
+  window.addEventListener('scroll', debouncedUpdateTOC);
   
-  // Initial update
-  updateTOCOnScroll();
+  // Initial update with a small delay to ensure all elements are loaded
+  setTimeout(() => {
+    debouncedUpdateTOC();
+  }, 100);
   
   // Hide TOC by default on mobile
   if (window.innerWidth <= 768) {
@@ -1017,4 +1259,172 @@ window.addEventListener('resize', function() {
     tocContainer.classList.add('toc-hidden');
   }
 });
+
+// Custom Video Player Functionality
+class CustomVideoPlayer {
+  constructor(videoId, playBtnId, progressId, progressBarId, timeId) {
+    this.video = document.getElementById(videoId);
+    this.playBtn = document.getElementById(playBtnId);
+    this.progress = document.getElementById(progressId);
+    this.progressBar = document.getElementById(progressBarId);
+    this.timeDisplay = document.getElementById(timeId);
+    this.container = this.video.parentElement; // Get the video container
+    
+    this.isPlaying = false;
+    this.init();
+  }
+  
+  init() {
+    // Play/Pause functionality
+    this.playBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent event bubbling
+      this.togglePlay();
+    });
+    this.video.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent event bubbling
+      this.togglePlay();
+    });
+    
+    // Click on video container to play/pause
+    this.container.addEventListener('click', () => this.togglePlay());
+    
+    // Progress bar functionality
+    this.progress.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent event bubbling
+      this.seek(e);
+    });
+    this.video.addEventListener('timeupdate', () => this.updateProgress());
+    this.video.addEventListener('loadedmetadata', () => this.updateTimeDisplay());
+    
+    // Video events
+    this.video.addEventListener('ended', () => this.onEnded());
+    this.video.addEventListener('play', () => this.onPlay());
+    this.video.addEventListener('pause', () => this.onPause());
+    
+    // Initialize volume to 1.0
+    this.video.volume = 1.0;
+  }
+  
+  togglePlay() {
+    if (this.isPlaying) {
+      this.video.pause();
+    } else {
+      this.video.play();
+    }
+  }
+  
+  seek(e) {
+    const rect = this.progress.getBoundingClientRect();
+    const pos = (e.clientX - rect.left) / rect.width;
+    this.video.currentTime = pos * this.video.duration;
+  }
+  
+  updateProgress() {
+    const percent = (this.video.currentTime / this.video.duration) * 100;
+    this.progressBar.style.width = percent + '%';
+    this.updateTimeDisplay();
+  }
+  
+  updateTimeDisplay() {
+    const currentTime = this.formatTime(this.video.currentTime);
+    const duration = this.formatTime(this.video.duration);
+    this.timeDisplay.textContent = `${currentTime} / ${duration}`;
+  }
+  
+  formatTime(seconds) {
+    if (isNaN(seconds)) return '0:00';
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+  }
+  
+  onPlay() {
+    this.isPlaying = true;
+    this.playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+  }
+  
+  onPause() {
+    this.isPlaying = false;
+    this.playBtn.innerHTML = '<i class="fas fa-play"></i>';
+  }
+  
+  onEnded() {
+    this.isPlaying = false;
+    this.playBtn.innerHTML = '<i class="fas fa-play"></i>';
+  }
+}
+
+// Initialize video players when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize CoT video players
+  new CustomVideoPlayer(
+    'cot-correct-video',
+    'cot-correct-play-btn',
+    'cot-correct-progress',
+    'cot-correct-progress-bar',
+    'cot-correct-time'
+  );
+  
+  new CustomVideoPlayer(
+    'cot-wrong-video',
+    'cot-wrong-play-btn',
+    'cot-wrong-progress',
+    'cot-wrong-progress-bar',
+    'cot-wrong-time'
+  );
+  
+  // Initialize L2M video players
+  new CustomVideoPlayer(
+    'l2m-correct-video',
+    'l2m-correct-play-btn',
+    'l2m-correct-progress',
+    'l2m-correct-progress-bar',
+    'l2m-correct-time'
+  );
+  
+  new CustomVideoPlayer(
+    'l2m-wrong-video',
+    'l2m-wrong-play-btn',
+    'l2m-wrong-progress',
+    'l2m-wrong-progress-bar',
+    'l2m-wrong-time'
+  );
+  
+  // Initialize ToT video players
+  new CustomVideoPlayer(
+    'tot-correct-video',
+    'tot-correct-play-btn',
+    'tot-correct-progress',
+    'tot-correct-progress-bar',
+    'tot-correct-time'
+  );
+  
+  new CustomVideoPlayer(
+    'tot-wrong-video',
+    'tot-wrong-play-btn',
+    'tot-wrong-progress',
+    'tot-wrong-progress-bar',
+    'tot-wrong-time'
+  );
+  
+  // Initialize MCTS video players
+  new CustomVideoPlayer(
+    'mcts-correct-video',
+    'mcts-correct-play-btn',
+    'mcts-correct-progress',
+    'mcts-correct-progress-bar',
+    'mcts-correct-time'
+  );
+  
+  new CustomVideoPlayer(
+    'mcts-wrong-video',
+    'mcts-wrong-play-btn',
+    'mcts-wrong-progress',
+    'mcts-wrong-progress-bar',
+    'mcts-wrong-time'
+  );
+});
 </script>
+
+</body>
+</html>
