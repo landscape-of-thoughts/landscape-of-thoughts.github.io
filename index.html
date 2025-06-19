@@ -53,6 +53,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typeit/5.10.1/typeit.min.js"></script>
   <!-- / Typing Effect JS --> 
 
+  <!-- MathJax for LaTeX rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
   <style>
     .bigdiv {
       font-size: large;
@@ -183,7 +186,7 @@
       }
     }
     
-    /* Landscape of Thoughts Examples section styles */
+    /* Examples of Visualization section styles */
     .examples-container {
       margin-top: 100px;
     }
@@ -383,7 +386,7 @@
       Introduction
     </div>
     <div class="toc-item" onclick="scrollToSection('examples')">
-      Landscape of Thoughts Examples
+      Examples of Visualization
     </div>
     <div class="toc-subitem" onclick="scrollToSection('cot')">
       Chain-of-Thought (CoT)
@@ -404,16 +407,16 @@
       More Visualizations & Insights
     </div>
     <div class="toc-subitem" onclick="scrollToSection('algorithm')">
-      Algorithm
+      Different Algorithms
     </div>
     <div class="toc-subitem" onclick="scrollToSection('dataset')">
-      Dataset
+      Different Datasets
     </div>
     <div class="toc-subitem" onclick="scrollToSection('model')">
-      Model
+      Non-reasoning Models
     </div>
-    <div class="toc-item" onclick="scrollToSection('reasoning-models')">
-      Landscape of Advanced Reasoning Models
+    <div class="toc-subitem" onclick="scrollToSection('reasoning-models')">
+      Reasoning Models
     </div>
     <div class="toc-item" onclick="scrollToSection('verifier')">
       A Lightweight Verifier to Predictive Models
@@ -577,7 +580,8 @@
                 alt="img description"
                 width="800"
                 height="600" />
-              <p><b>Figure 1</b>. Landscape of thoughts for visualizing the reasoning steps of LLMs.</p>
+              <p style="text-align: left;"><b>Figure 1</b>. Illustration of Landscape of thoughts for visualizing the reasoning steps of LLMs. Note that the red landscape represents wrong reasoning cases, while the blue indicates the correct ones. The darker regions in landscapes indicate more thoughts, with <img src="./static/paper_imgs/red_cross.png" style="height:0.8em; vertical-align:middle;"> indicating incorrect answers and <img src="./static/paper_imgs/green_star.png" style="height:0.8em; vertical-align:middle;"> marking correct answers. 
+                We sample reasoning trajectories from an LLM, segment them into individual thoughts, categorize them based on their correctness, and project them into a 2-dimensional space to visualize how reasoning states are distributed throughout the solution process.</p>
           </div>
         </div>
       </div>
@@ -594,7 +598,7 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Landscape of Thoughts Examples</h2>
+        <h2 class="title is-3">Examples of Visualization</h2>
         <div class="content has-text-justified">
           <p>
             We show the examples of landscape of thoughts: visualization of AQuA using Llama-3.1-70B across different reasoning methods.
@@ -865,21 +869,40 @@
             </li>
             <li> <b>Visualization:</b> We project the high-dimensional feature matrix into 2D space, and smooth the discrete points into a continuous density map. </li>
           </ul>
+          </p>
+          <div class="figure" style="align: left; text-align:center;">
+            <img
+              src="./static/paper_imgs/method_details.png"
+              alt="details of LoT"
+              width="1500"/>
+            <p><b>Figure 2</b>. Implementation details of Landscape of Thoughts.</p>
+        </div>
+        <p> 
           In addition, we also introduce three quantitative metrics to help understand the reasoning behaviors of LLMs at different steps.
           <ul>
-            <li> <b>Consistency:</b> whether the LLM knows the answer before generating all thoughts</li>
-            <li> <b>Uncertainty:</b> how confident the LLM is about its predictions at intermediate steps</li>
-            <li> <b>Perplexity:</b> how confident the LLM is about its thoughts</li>
+            <li> <b>Consistency:</b> whether the LLM knows the answer before generating all thoughts:</li>
+            <div>
+              $$
+              \text{Consistency}(s_i) = \mathbb{1}(\arg\min \mathbf{s}_i = \arg\min \mathbf{s}_n).
+              $$
+            </div>
+            <li> <b>Uncertainty:</b> how confident the LLM is about its predictions at intermediate steps:</li>
+            <div style="margin-bottom: -1em;">
+              $$
+              \text{Uncertainty}(s_i) = -\sum_{d \in \mathbf{s}_i} d \cdot \log d.
+              $$  
+            </div>
+            <li> <b>Perplexity:</b> how confident the LLM is about its thoughts:</li>
+            <div>
+              $$
+              \text{Perplexity}(t_i) = p_{\text{LLM}}(t_i|s_{i-1})^{-1/|t_i|}.
+              $$
+            </div>
           </ul>
+          
         </p>
       </div>
-      <div class="figure" style="align: left; text-align:center;">
-        <img
-          src="./static/paper_imgs/method_details.png"
-          alt="details of LoT"
-          width="1500"/>
-        <p><b>Figure 2</b>. Implementation details of Landscape of Thoughts.</p>
-    </div>
+      
 
 
       </div>
@@ -912,8 +935,7 @@
               <img src="./static/paper_imgs/visual_exp1.png" 
               class="example-image"
               alt="LoT for different algorithms."
-              width="1500"
-              id="algorithm" /> 
+              width="1500" /> 
                <p><b>Figure 3</b>. Comparing the landscapes and corresponding metrics of four reasoning algorithms (using Llama-3.1-70B on the AQuA dataset).  </p>
           </div>
           <div class="content has-text-justified">
@@ -941,8 +963,7 @@
               <img src="./static/paper_imgs/visual_exp2.png" 
               class="example-image"
               alt="LoT for different datasets."
-              width="1500"
-              id="dataset" /> 
+              width="1500" /> 
                <p><b>Figure 4</b>. Comparing the landscapes and corresponding metrics of different datasets (using Llama-3.1-70B with CoT). </p>
           </div>
           <div class="content has-text-justified">
@@ -961,7 +982,7 @@
         <!--/ Example 2 -->
 
         <!-- Example 3 -->
-        <h3 class="title is-3" id="model">Different Language Models</h3>
+        <h3 class="title is-3" id="model">Non-reasoning Models</h3>
         <div class="content has-text-justified">
           <!-- Add image -->
           <div class="figure" style="align: left; text-align:center; margin: 0 -200px; overflow: visible;">
@@ -988,12 +1009,10 @@
     </p>
     </div>
 
-    <!--/ Reasoning Models  -->
-    <section class="section" id="reasoning-models">
+    <h3 class="title is-3" id="reasoning-models">Reasoning Models</h3>
       <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
-            <h3 class="title is-3">Landscape of Advanced Reasoning Models</h3>
             <div class="content has-text-justified">
               <p>
                 We present visualizations of the reasoning process for several advanced language models. Specifically, we analyze the CoT reasoning patterns of <b>QwQ-32B</b>, <b>DeepSeek-R1-Distilled-Llama-70B</b>, and <b>DeepSeek-R1-Distilled-Qwen-1.5B</b> on the AQuA dataset.
@@ -1041,7 +1060,6 @@
           </div>
         </div>
       </div>
-    </section>
 
       </div>
     </div>
@@ -1061,10 +1079,10 @@
           </p>
         </div>        
           <div class="content has-text-centered">
-            <p><b>Figure 9</b>. Reasoning accuracy averaging across all dataset.</p>
             <img src="./static/paper_imgs/average_performance.png" style="width:1500px;"
             class="result-image"
             alt="Interpolation end reference image."/>
+            <p><b>Figure 9</b>. Reasoning accuracy averaging across all dataset.</p>
           </div>
 
           <br>
@@ -1075,10 +1093,10 @@
             </p>
           </div>
           <div class="content has-text-centered">
-            <p><b>Figure 10</b>. Demonstration of the inference-time scaling effect of the verifier.</p>
             <img src="./static/paper_imgs/inference_scaling.png" style="width:1500px;"
             class="result-image"
             alt="Interpolation end reference image."/>
+            <p><b>Figure 10</b>. Demonstration of the inference-time scaling effect of the verifier.</p>
           </div>
 
     </div>
@@ -1089,7 +1107,8 @@
   <div class="container is-max-desktop content">
     <h2 class="title">Contact</h2>
     <p>
-      Welcome to check our paper for more details of the work. If there is any question, please feel free to contact us.<br>
+      For more details about our work, please refer to our paper. If you have any questions, feel free to contact us at cszkzhou@comp.hkbu.edu.hk or open an issue on our <a href="https://github.com/tmlr-group/landscape-of-thoughts/issues">GitHub repository</a>.
+      <br>
     <!-- </p>
     <p> -->
       If you find our paper and repo useful, please consider to cite:
@@ -1152,20 +1171,58 @@ function toggleTOC() {
 
 // Scroll to section with smooth animation
 function scrollToSection(sectionId) {
+  console.log('Scrolling to:', sectionId); // Debug log
   const element = document.getElementById(sectionId);
-  if (element) {
-    // Calculate offset based on viewport and potential fixed elements
-    const offset = Math.max(100, window.innerHeight * 0.1); // At least 100px or 10% of viewport
-    const elementPosition = element.offsetTop - offset;
-    
-    window.scrollTo({
-      top: Math.max(0, elementPosition), // Ensure we don't scroll to negative position
-      behavior: 'smooth'
-    });
-    
-    // Update active state in TOC
-    updateActiveTOCItem(sectionId);
+  
+  if (!element) {
+    console.error('Element not found:', sectionId);
+    return;
   }
+  
+  // Temporarily disable scroll listener to prevent interference
+  window.removeEventListener('scroll', debouncedUpdateTOC);
+  
+  // Use getBoundingClientRect for more accurate positioning
+  const rect = element.getBoundingClientRect();
+  const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
+  const elementAbsoluteTop = rect.top + currentScrollY;
+  
+  // Calculate offset based on element type
+  let offset = 100;
+  if (element.tagName === 'H3' && element.classList.contains('is-4')) {
+    offset = 120; // Sub-sections like CoT, L2M, etc.
+  } else if (element.tagName === 'H3') {
+    offset = 100; // Main sections like Different Algorithms
+  } else if (element.tagName === 'SECTION') {
+    offset = 80; // Section elements
+  }
+  
+  const targetPosition = Math.max(0, elementAbsoluteTop - offset);
+  
+  console.log('Element details:', {
+    sectionId,
+    tagName: element.tagName,
+    classList: Array.from(element.classList),
+    rectTop: rect.top,
+    currentScrollY,
+    elementAbsoluteTop,
+    offset,
+    targetPosition
+  });
+  
+  // Use instant scroll for more reliable positioning
+  window.scrollTo({
+    top: targetPosition,
+    behavior: 'smooth'
+  });
+  
+  // Update active state in TOC immediately
+  updateActiveTOCItem(sectionId);
+  
+  // Re-enable scroll listener after scrolling completes
+  setTimeout(() => {
+    window.addEventListener('scroll', debouncedUpdateTOC);
+  }, 1000);
 }
 
 // Update active TOC item based on current scroll position
@@ -1201,25 +1258,20 @@ function updateTOCOnScroll() {
     'landscape', 'experiments', 'algorithm', 'dataset', 'model', 'reasoning-models', 'verifier', 'contact'
   ];
   
-  const scrollPosition = window.scrollY + 200; // Increased offset for better detection
+  const scrollPosition = window.scrollY + 150; // Detection offset
   let currentSection = 'abstract'; // Default section
   
   // Find the current section based on scroll position
-  for (let i = 0; i < sections.length; i++) {
+  for (let i = sections.length - 1; i >= 0; i--) {
     const section = document.getElementById(sections[i]);
     if (section) {
-      const sectionTop = section.offsetTop;
-      const sectionBottom = sectionTop + section.offsetHeight;
+      const rect = section.getBoundingClientRect();
+      const sectionTop = rect.top + window.scrollY - 120; // More accurate calculation
       
-      // Check if scroll position is within this section
-      if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+      // Check if we've scrolled past this section
+      if (scrollPosition >= sectionTop) {
         currentSection = sections[i];
         break;
-      }
-      
-      // If we're past the last section, use the last one
-      if (i === sections.length - 1 && scrollPosition >= sectionTop) {
-        currentSection = sections[i];
       }
     }
   }
