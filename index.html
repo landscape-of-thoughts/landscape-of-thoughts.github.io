@@ -379,9 +379,9 @@
     <i class="fas fa-bookmark"></i> Table of Contents
   </div>
   <div class="toc-content">
-    <div class="toc-item" onclick="scrollToSection('abstract')">
+    <!-- <div class="toc-item" onclick="scrollToSection('abstract')">
       Abstract
-    </div>
+    </div> -->
     <div class="toc-item" onclick="scrollToSection('introduction')">
       Introduction
     </div>
@@ -423,7 +423,7 @@
     </div>
     
     <div class="toc-item" onclick="scrollToSection('contact')">
-      Contact
+      Contact & Citation
     </div>
   </div>
 </div>
@@ -542,12 +542,26 @@
   </div>
 </section>
 
+<section class="section" id="video">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <div class="content has-text-centered">
+          <video id="instruction-video" controls playsinline width="100%" style="max-width: 1200px;">
+            <source src="./static/video/instruction.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
 
 
-<section class="section" id="abstract">
+<!-- <section class="section" id="abstract">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
+    <!-- <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
@@ -557,10 +571,8 @@
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
-
   </div>
-</section>
+</section> -->
 
 <section class="section" id="introduction">
   <div class="container is-max-desktop">
@@ -571,7 +583,8 @@
         <div class="content has-text-justified">
           <!-- Add image -->
           <p>
-            LLMs excel in tasks like tool use and step-by-step reasoning, but their reasoning processes are not well understood. Reading their generated reasoning texts is time-consuming. Landscape of thoughts approach uses visualization plots to intuitively analyze and clarify the LLM reasoning process for users.
+            <!-- LLMs excel in tasks like tool use and step-by-step reasoning, but their reasoning processes are not well understood. Reading their generated reasoning texts is time-consuming. Landscape of thoughts approach uses visualization plots to intuitively analyze and clarify the LLM reasoning process for users. -->
+            Large language models (LLMs) increasingly rely on step-by-step reasoning for various applications, yet their reasoning processes remain poorly understood, hindering research, development, and safety efforts. To address this, we introduce <i>Landscape of Thoughts</i>, the first visualization tool designed to explore the reasoning paths of chain-of-thought and its derivatives across any multiple-choice dataset. We represent reasoning states as feature vectors, capturing their distances to all answer choices, and visualize them in 2D using t-SNE. Through qualitative and quantitative analysis, <i>Landscape of Thoughts</i> effectively distinguishes strong versus weak models, correct versus incorrect answers, and diverse reasoning tasks. It also reveals undesirable reasoning patterns, such as inconsistency and high uncertainty. Furthermore, users can adapt the tool to predict specific properties, as demonstrated by a lightweight verifier that evaluates reasoning correctness.
           </p>
           <br>
           <div class="figure" style="align: left; text-align:center;">
@@ -659,7 +672,7 @@
                 <iframe src="static/animations/TextThought_Meta-Llama-3.1-70B-Instruct-Turbo-aqua-cot.html" class="text-iframe" frameborder="0"></iframe>
               </div>
               <div class="text-caption-container">
-                <figcaption class="caption">Hover over a node in the landscape below to see raw textual reasoning process.</figcaption>
+                <figcaption class="caption">Hover over a node in the landscape above to see raw textual reasoning process.</figcaption>
               </div>
             </div>
           </div>
@@ -719,7 +732,7 @@
               <iframe src="static/animations/TextThought_Meta-Llama-3.1-70B-Instruct-Turbo-aqua-l2m.html" class="text-iframe" frameborder="0"></iframe>
             </div>
             <div class="text-caption-container">
-              <figcaption class="caption">Hover over a node in the landscape below to see raw textual reasoning process.</figcaption>
+              <figcaption class="caption">Hover over a node in the landscape above to see raw textual reasoning process.</figcaption>
             </div>
           </div>
         </div>
@@ -779,7 +792,7 @@
               <iframe src="static/animations/TextThought_Meta-Llama-3.1-70B-Instruct-Turbo-aqua-tot.html" class="text-iframe" frameborder="0"></iframe>
             </div>
             <div class="text-caption-container">
-              <figcaption class="caption">Hover over a node in the landscape below to see raw textual reasoning process.</figcaption>
+              <figcaption class="caption">Hover over a node in the landscape above to see raw textual reasoning process.</figcaption>
             </div>
           </div>
         </div>
@@ -840,7 +853,7 @@
               <iframe src="static/animations/TextThought_Meta-Llama-3.1-70B-Instruct-Turbo-aqua-mcts.html" class="text-iframe" frameborder="0"></iframe>
             </div>
             <div class="text-caption-container">
-              <figcaption class="caption">Hover over a node in the landscape below to see raw textual reasoning process.</figcaption>
+              <figcaption class="caption">Hover over a node in the landscape above to see raw textual reasoning process.</figcaption>
             </div>
           </div>
           </div>
@@ -1011,13 +1024,13 @@
 
     <h3 class="title is-3" id="reasoning-models">Reasoning Models</h3>
       <div class="container is-max-desktop">
+        <div class="content has-text-justified">
+          <p>
+            We present visualizations of the reasoning process for several advanced language models. Specifically, we analyze the CoT reasoning patterns of <b>QwQ-32B</b>, <b>DeepSeek-R1-Distilled-Llama-70B</b>, and <b>DeepSeek-R1-Distilled-Qwen-1.5B</b> on the AQuA dataset.
+          </p>
+        </div>
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
-            <div class="content has-text-justified">
-              <p>
-                We present visualizations of the reasoning process for several advanced language models. Specifically, we analyze the CoT reasoning patterns of <b>QwQ-32B</b>, <b>DeepSeek-R1-Distilled-Llama-70B</b>, and <b>DeepSeek-R1-Distilled-Qwen-1.5B</b> on the AQuA dataset.
-              </p>
-            </div>
             <div class="content has-text-justified">
               <!-- Add image -->
               <div class="figure" style="align: left; text-align:center; margin: 0 -200px; overflow: visible;">
@@ -1058,6 +1071,16 @@
               <!-- / Add image -->
             </div>
           </div>
+          
+        </div>
+        <div class="content has-text-justified">
+          <p>
+          <ul>
+            <li><b>Observation 8:</b> Correct reasoning demonstrates decentralized patterns.</li>
+            
+            <li><b>Observation 9:</b> Reasoning models exhibit self-checking and awareness of correctness when deviating from the correct answer.</li>
+          </ul>
+        </p>
         </div>
       </div>
 
@@ -1098,19 +1121,22 @@
             alt="Interpolation end reference image."/>
             <p><b>Figure 10</b>. Demonstration of the inference-time scaling effect of the verifier.</p>
           </div>
-
+          <div class="content has-text-justified is-centered">
+          <p>
+            Notably, this verifier serves as a simple demonstration of how the Landscape of Thoughts framework can be leveraged to improve language models' reasoning capabilities. The framework can be extended to many other scenarios, enabling the discovery and analysis of additional interesting properties of language model reasoning.
+          </p>
+        </div> 
     </div>
   </div>
 </section>
 
 <section class="section" id="contact">
   <div class="container is-max-desktop content">
-    <h2 class="title">Contact</h2>
+    <h2 class="title">Contact & Citation</h2>
     <p>
       For more details about our work, please refer to our paper. If you have any questions, feel free to contact us at cszkzhou@comp.hkbu.edu.hk or open an issue on our <a href="https://github.com/tmlr-group/landscape-of-thoughts/issues">GitHub repository</a>.
       <br>
-    <!-- </p>
-    <p> -->
+      <br>
       If you find our paper and repo useful, please consider to cite:
     </p>
     <pre><code>
@@ -1254,7 +1280,7 @@ function debounce(func, wait) {
 // Auto-update active TOC item on scroll
 function updateTOCOnScroll() {
   const sections = [
-    'abstract', 'introduction', 'examples', 'cot', 'l2m', 'tot', 'mcts', 
+    'introduction', 'examples', 'cot', 'l2m', 'tot', 'mcts', 
     'landscape', 'experiments', 'algorithm', 'dataset', 'model', 'reasoning-models', 'verifier', 'contact'
   ];
   
